@@ -5300,6 +5300,14 @@ gatsby-react-router-scroll@^6.7.0:
     "@babel/runtime" "^7.20.13"
     prop-types "^15.8.1"
 
+gatsby-remark-gifs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-gifs/-/gatsby-remark-gifs-1.1.0.tgz#1ca63059e83ba254ca413fb1e9fe6f382ba03e60"
+  integrity sha512-6p0ko6mzcyrpQ/7CSb1B66kctTeCNdT1OohxF4InQND9ujPj7tFc5lo96bp35qHDq+CeutqY8m15lwASydxZOw==
+  dependencies:
+    is-relative-url "^3.0.0"
+    unist-util-visit "^2.0.3"
+
 gatsby-remark-images@^7.7.0:
   version "7.7.0"
   resolved "https://registry.yarnpkg.com/gatsby-remark-images/-/gatsby-remark-images-7.7.0.tgz#0e584896cd0c465c69c72a22cd50278f97cecdaa"
