@@ -1,145 +1,84 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 11 Mar 2023 09:32:29 GMT</lastBuildDate><item><title><![CDATA[서비스워커 사용해보기]]></title><description><![CDATA[서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드 서비스워커 코드 처음으로 서비스 워커가 있는 페이지에 들어와 설치 및 활성화 된 모습  새로고침 하여 dog.svg에 대한 요청을 가로채 캐시에 있던 cat.svg를 받은 모습  fetch…]]></description><link>https://read0more.github.io/blog/서비스워커-사용해보기/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커-사용해보기/</guid><pubDate>Sat, 11 Mar 2023 17:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;navigator&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;serviceWorker
-    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;register&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;/sw.js&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;reg&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;서비스워커 등록됨&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; reg&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;catch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;서비스워커 등록실패&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; err&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 Mar 2023 12:59:10 GMT</lastBuildDate><item><title><![CDATA[DOM 요소의 swap]]></title><description><![CDATA[이미 시간이 꽤 지났지만 바닐라JS로 토이프로젝트를 하던 도중 경험한 일이다. 특정 요소 두 개를 swap하고 싶은데... 토이프로젝트를 하던 도중 canvas가 담긴 요소끼리 swap…]]></description><link>https://read0more.github.io/blog/요소의-swap/</link><guid isPermaLink="false">https://read0more.github.io/blog/요소의-swap/</guid><pubDate>Mon, 13 Mar 2023 21:32:19 GMT</pubDate><content:encoded>&lt;p&gt;이미 시간이 꽤 지났지만 바닐라JS로 토이프로젝트를 하던 도중 경험한 일이다.&lt;/p&gt;
+&lt;h2&gt;특정 요소 두 개를 swap하고 싶은데...&lt;/h2&gt;
+&lt;p&gt;토이프로젝트를 하던 도중 canvas가 담긴 요소끼리 swap 해야 할 일이 생겼고, 어떻게 할까? 생각하던 도중 바로 들었던 생각은&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;아! 그냥 innerHTML이용해서 바꾸면 쉽겠네!&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;같은 생각을 하였다. 그래서 처음 엔 다음과 같은 코드를 작성 하였다.&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function swap(nodeA, nodeB) {
+  [nodeA.innerHTML, nodeB.innerHTML] = [nodeB.innerHTML, nodeA.innerHTML];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;하지만 이 방법은 전혀 먹히질 않았고 조사해보다 원인을 알게 되었다. 모던 JavaScript 튜토리얼 사이트(&lt;a href=&quot;https://ko.javascript.info/basic-dom-node-properties#ref-2284)%EC%9D%98&quot;&gt;https://ko.javascript.info/basic-dom-node-properties#ref-2284)의&lt;/a&gt; 내용을 인용하여 이유를 말하자면 이렇다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;기존 내용을 &apos;완전히 삭제’한 후 밑바닥부터 다시 쓰기 때문에 이미지나 리소스 전부가 다시 불러와 집니다.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;이를 확인하기 위해 간단한 스크립트를 작성해 보았다&lt;/p&gt;
+&lt;h2&gt;이미지가 담긴 요소의 swap&lt;/h2&gt;
+&lt;p&gt;사실, 단순히 img태그에서 이미지를 불러오게 하는 방식으로는 크게 차이가 없어보였다. 이는 알아서 이미지가 캐싱되었기 때문으로, 크롬 개발자 도구에서 캐싱을 잠시 끄고 테스트 해보았다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/my-blog/6657acc2e3237366bcca2bbb89932ae1/swap1.gif&quot; alt=&quot;img swap&quot;&gt;&lt;/p&gt;
+&lt;p&gt;처음 2번의 swap은 insertBefore를 이용한 swap이고, 그 다음은 innerHTML을 통한 swap이다. 개발자도구나 화면을 보면 알 수 있듯이 innerHTML로 swap 했을 경우 캐싱을 안했다면 이미지를 다시 불러오는 것을 확인 할 수 있다.&lt;/p&gt;
+&lt;h2&gt;canvas가 담긴 요소의 swap&lt;/h2&gt;
+&lt;p&gt;이번에는 문제가 더욱 심각하다.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/my-blog/7d2d6c03f9599a5897f3c5a30f5b21b7/swap2.gif&quot; alt=&quot;img swap2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;마찬가지로 처음 2번의 swap은 insertBefore를 이용한 swap이고, 그 다음은 innerHTML을 통한 swap이다.
+화면을 보면 알 수 있듯이 innerHTML로 swap을 했더니 canvas로 그린 내용이 사라져 버린다! 위에서 언급했던대로 기존 내용을 &apos;완전히 삭제&apos;한 후 밑바닥부터 다시 쓰기 때문에 이런 현상이 발생한 것이다.&lt;/p&gt;
+&lt;h2&gt;결론&lt;/h2&gt;
+&lt;p&gt;innerHTML을 통해 바로 swap 하는건 편해보이지만 이러한 이유 및 XSS 취약한 등의 이유로 피하는 편이 좋다. 비록 지금은 웹페이지는 React로만 작성하고 있지만 기본을 아는것이 중요하다고 생각하기에 다시 정리해보았다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[서비스워커 사용해보기]]></title><description><![CDATA[서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드 서비스워커 코드 처음으로 서비스 워커가 있는 페이지에 들어와 설치 및 활성화 된 모습 dog 새로고침 하여 dog.svg에 대한 요청을 가로채 캐시에 있던 cat.svg를 받은 모습 cat…]]></description><link>https://read0more.github.io/blog/서비스워커-사용해보기/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커-사용해보기/</guid><pubDate>Sat, 11 Mar 2023 17:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;navigator.serviceWorker
+    .register(&quot;/sw.js&quot;)
+    .then((reg) =&gt; console.log(&quot;서비스워커 등록됨&quot;, reg))
+    .catch((err) =&gt; console.log(&quot;서비스워커 등록실패&quot;, err));
 
-  &lt;span class=&quot;token comment&quot;&gt;// 이미지 캐싱 확인을 위한 코드&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;setTimeout&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; img &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Image&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;src &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/dog.svg&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    img&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;style&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;width: 100px; height: 100px;&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-    document&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;body&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;appendChild&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;img&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1000&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  // 이미지 캐싱 확인을 위한 코드
+  setTimeout(() =&gt; {
+    const img = new Image();
+    img.src = &quot;/dog.svg&quot;;
+    img.style=&quot;width: 100px; height: 100px;&quot;;
+    document.body.appendChild(img);
+  }, 1000);
 
-  &lt;span class=&quot;token comment&quot;&gt;// 요청을 가로채고 응답하는 것을 보기 위한 fetch&lt;/span&gt;
-  &lt;span class=&quot;token function&quot;&gt;fetch&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;http://localhost:3000/api&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; res&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;json&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;data&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  // 요청을 가로채고 응답하는 것을 보기 위한 fetch
+  fetch(&quot;http://localhost:3000/api&quot;)
+    .then((res) =&gt; res.json())
+    .then((data) =&gt; console.log(data));
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;서비스워커 코드&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; image &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/cat.svg&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const image = &quot;/cat.svg&quot;;
 
-self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;install&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;V1 installing…&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+self.addEventListener(&quot;install&quot;, (event) =&gt; {
+  console.log(&quot;V1 installing…&quot;);
 
-  &lt;span class=&quot;token comment&quot;&gt;// cat.svg를 캐싱&lt;/span&gt;
-  event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;waitUntil&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
-    caches&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;static-v1&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;cache&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; cache&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;add&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;image&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  // cat.svg를 캐싱
+  event.waitUntil(
+    caches.open(&quot;static-v1&quot;).then((cache) =&gt; cache.add(image))
+  );
+});
 
-self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;activate&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;V1 now ready to handle fetches!&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+self.addEventListener(&quot;activate&quot;, (event) =&gt; {
+  console.log(&quot;V1 now ready to handle fetches!&quot;);
+});
 
-self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;fetch&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; url &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;URL&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;request&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
+  const url = new URL(event.request.url);
 
-  &lt;span class=&quot;token comment&quot;&gt;// 같은 origin이고 dog.svg를 요청했다면 캐시에 있는 이미지(cat.svg)를 넘겨준다&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;origin &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; location&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;origin &lt;span class=&quot;token operator&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; url&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pathname &lt;span class=&quot;token operator&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;/dog.svg&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;respondWith&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;caches&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;image&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  // 같은 origin이고 dog.svg를 요청했다면 캐시에 있는 이미지(cat.svg)를 넘겨준다
+  if (url.origin == location.origin &amp;#x26;&amp;#x26; url.pathname == &quot;/dog.svg&quot;) {
+    event.respondWith(caches.match(image));
+  }
 
-  &lt;span class=&quot;token comment&quot;&gt;// 현재 서버에 저런 경로가 없던간에 CORS문제가 있는 경로던 간에 서비스워커가 가로채면 상관없다&lt;/span&gt;
-  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;url&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;pathname &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/api&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;respondWith&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;token class-name&quot;&gt;Response&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token constant&quot;&gt;JSON&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stringify&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; &lt;span class=&quot;token literal-property property&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;CORS가 났더라도 가로채기 때문에 상관없음&apos;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+  // 현재 서버에 저런 경로가 없던간에 CORS문제가 있는 경로던 간에 서비스워커가 가로채면 상관없다
+  if (url.pathname === &apos;/api&apos;) {
+    event.respondWith(new Response(JSON.stringify({ data: &apos;CORS가 났더라도 가로채기 때문에 상관없음&apos; })));
+  }
+});
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;처음으로 서비스 워커가 있는 페이지에 들어와 설치 및 활성화 된 모습&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/my-blog/static/d22013767114e4fde593d39dccbc58d2/3fe45/dog.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 61.39240506329114%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACG0lEQVR42qVR7W4SQRTdF2mB/f6c3Znd5cNiAWuJJg0aE620tbGwFqVNaqpC4lP4APyqvAoPwB8egacAjrlDaYq/TNzk5N659+yZc+cq8/kc0+kUo9EI9K1Wq/+C0mq1wDnHeDyWgovF4r4JrPBvwGPBu7vfmEwmmM1mUnC5XK6JRFguAMJqSY11fIz72pbDXz8H+Db4iG7nAtmHc2Tna3y66CLLviDLPqPT7aHb7a1j53LrnHUvcXt9jZt+H1+vrqBUay/BeQweCSRximJagmAh7NIBvLe3cN/cIGoPEBx/R/FsCP91H/xkiOj9D4TtIbxWD67HEPgMvs+g1BvPIeIiwihex1Ag4gl0w4TleNAMGyKtwGcCIqHI5ZnxFKEogsclcJ7Kf1goSPAZGo0DhCGHqurQNANqQZPC1ad17FVrSNIyTNOGZTmwbVdGhy7TdORyBeTz6gOUw8MmTk/P0G6foF5voFQqQ4gEhmHBcXxYtgvH9WE7HmzbkzXKqaYbFgqqLo1soFQqewiCEIWChp2dnCRQTo5ohIBF4CKFqhqyv7ubl6Cc3BF3y+H+fh0pLUIkYCySJLqJmpTrugnHDRAlVRkN04ZpOtIhjUw8Et1AKZef4OjoFd4dt1Gt1h4ENwTKaUERjxEnZfm2AS0mTmG7DPm/HdKbNZsvUKs15BhU3AhSLh16Phzfl0Is5PCDUMJjKTTdkkvcvOEfG+kHgmP3NRoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;dog&quot;
-        title=&quot;&quot;
-        src=&quot;/my-blog/static/d22013767114e4fde593d39dccbc58d2/f058b/dog.png&quot;
-        srcset=&quot;/my-blog/static/d22013767114e4fde593d39dccbc58d2/c26ae/dog.png 158w,
-/my-blog/static/d22013767114e4fde593d39dccbc58d2/6bdcf/dog.png 315w,
-/my-blog/static/d22013767114e4fde593d39dccbc58d2/f058b/dog.png 630w,
-/my-blog/static/d22013767114e4fde593d39dccbc58d2/3fe45/dog.png 699w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./dog.png&quot; alt=&quot;dog&quot;&gt;&lt;/p&gt;
 &lt;h2&gt;새로고침 하여 dog.svg에 대한 요청을 가로채 캐시에 있던 cat.svg를 받은 모습&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/416ee/cat.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 74.0506329113924%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR42q2S2U4aYRTHR30Fo2iHWdiGTRaZEXBANqPSNDZVMYClxjsfoW1SvWtasaAUC+2VkbfwFWriA3jjXtQYNZoYA8m/mWPlpjXxopP8cr7zn7PNd4bZ2vqJnZ0d3N3dodlsotFooKHZR2j+i0ajBfP23XssfFjA/3qY2o9VLBc/Y/njJxTzSyjk81gulPCl+JUorJRRoHOJ9JWVEqrlMiqlEr6vreHb6ioKS0so5vNkGVkOwOFwwO3ywOXsg6OvH/bkLGxjs5BGchDCEzDHpuF8Pgdrcg4W9QVskg1WyQ6RF6FnOXB6HmwvC54TwMTDUcj+EJSBIAbVCKLROEYTEcQTowgPxRAMqggEVURjwwiFIggEQ/AHVCI4OHTv+1XIyn0+43Z7YTCaIUk2mEwSPB4fvF4ZLpcXPt8AZNkPr9f3x8qELA/A4+mHogRIdzpdZLVcxmyWwHECDAYTBMEAvZ5Ht64XLKsnTafrRVeXDj09z8hqPGjd3T3Eg6admaAaoQ52uxNWq4O6ZmdykGUFPC9gYjKF6ekMUqk0JidTGB9/hZcvH2MCTDQWwaAaht1uB8dxSKczuLm5wcbGBhiGQa1Ww+XlJXZ3d3F0dITDw0Pi4OAA+/v72Nvbo3ea1XxmbGwY8eERKIoCSZKQy73B2dkZJbEsS3/A+fk5aVqR4+Nj1Ot18i8uLqj57e0trq+vKY5xub20EJvNAUEQkc2+piRtqvX1dZoykUggFotBFEX6ElmWSZuamsL8/DwWFxdRqVSwubkJxmSy0FJE0UiXmslkcXp6SuNfXV0hmUxS0afQ0dEBxmKx0naNRjNtKpOZwcnJCbG9vY3Ozs5WcFtbG9He3k5o2gOaToW1gjwvtgqm01nU679oumq1SkFa8lOn/KugNqFWULvDcrlMQa3uT+A3FemK8ChVDiwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;cat&quot;
-        title=&quot;&quot;
-        src=&quot;/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/f058b/cat.png&quot;
-        srcset=&quot;/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/c26ae/cat.png 158w,
-/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/6bdcf/cat.png 315w,
-/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/f058b/cat.png 630w,
-/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/416ee/cat.png 930w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./cat.png&quot; alt=&quot;cat&quot;&gt;&lt;/p&gt;
 &lt;h2&gt;fetch 프록시 확인&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/07484/fetch.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 31.0126582278481%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKElEQVR42o2OzU7CQBRGeQlNTKSd6XQ6pC1YaJkCBfkrFRMFEhf+rJWVPgBPfwxFVibGxcl3b/Ldk9uYlg+kWU7U7hLFCfEx2wntTo+bJMXaIZPJHKMNgdYoqShGt0zGM2yWM5suyXq2diRJSiPrdZkXOUXWJdaC0HMIlUPku0RhhC1mJHZAXlVkszn9xZJ8WWKrisH6nulmiy1XOE0XKRWN7O2L+PWAeTnQfPzkYvXOZbXnar1HmA7S00jf4OoAoY9pcP2g3uvZtBBBCyk8xFGYb57p7j4Q0yea4x3NYsv1aIsz3uGZGOEIhPDqg1+4R+QJqU4fLoYRd2XJYjKisCmhL2riwMNX/kn2U/6Lc6/RSy39fEQYtZGeQvkaT2l0YFBK/1t4/vAbb023NVVMeRIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;fetch&quot;
-        title=&quot;&quot;
-        src=&quot;/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/07484/fetch.png&quot;
-        srcset=&quot;/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/c26ae/fetch.png 158w,
-/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/6bdcf/fetch.png 315w,
-/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/07484/fetch.png 540w&quot;
-        sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[서비스워커에 대하여]]></title><description><![CDATA[서비스 워커? 최근 테스트를 작성하면서 MSW(Mock Service Worker)를 이용하고 있는데, MSW가 서비스 워커를 이용하여 작성된 라이브러리이기 때문에 관심이 생겨서 알아보게 되었다. MDN…]]></description><link>https://read0more.github.io/blog/서비스워커에-대하여/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커에-대하여/</guid><pubDate>Sat, 11 Mar 2023 16:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스 워커?&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;./fetch.png&quot; alt=&quot;fetch&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[서비스워커에 대하여]]></title><description><![CDATA[서비스 워커? 최근 테스트를 작성하면서 MSW(Mock Service Worker)를 이용하고 있는데, MSW가 서비스 워커를 이용하여 작성된 라이브러리이기 때문에 관심이 생겨서 알아보게 되었다. MDN…]]></description><link>https://read0more.github.io/blog/서비스워커에-대하여/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커에-대하여/</guid><pubDate>Sat, 11 Mar 2023 16:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스 워커?&lt;/h2&gt;
 &lt;p&gt;최근 테스트를 작성하면서 MSW(Mock Service Worker)를 이용하고 있는데, MSW가 서비스 워커를 이용하여 작성된 라이브러리이기 때문에 관심이 생겨서 알아보게 되었다.&lt;/p&gt;
 &lt;p&gt;MDN의 서비스 워커 설명을 빌리자면 이렇다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -163,44 +102,14 @@ self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;h2&gt;서비스 워커의 업데이트 특징&lt;/h2&gt;
 &lt;h3&gt;1. 기존 서비스 워커 파일과의 &lt;strong&gt;바이트 단위 비교&lt;/strong&gt;로 구분하여 업데이트 한다.&lt;/h3&gt;
 &lt;p&gt;이게 뭐가 좋냐하면...그동안 실무를 하면서 js,css파일에 대한 수정사항을 즉각 반영하려 이전 캐싱을 무효화 하기 위해 다음과 같이 사용하는 경우를 자주 볼 수 있었다.&lt;/p&gt;
-&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;script src=&quot;/js/some.js?ver=1.0.0&quot;&gt;&amp;lt;/script&gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;#x3C;script src=&quot;/js/some.js?ver=1.0.0&quot;&gt;&amp;#x3C;/script&gt;&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;더 최악은 아예 querystring에 timestamp를 넣어서 아예 캐싱을 막아버리는 경우도 자주 보았다.&lt;/p&gt;
 &lt;p&gt;하지만 서비스 워커는 이전 파일에서 변경점이 있는지 알아서 구분해주기 때문에 이런 귀찮은 작업을 할 필요가 없는것이다.&lt;/p&gt;
 &lt;h3&gt;2. 업데이트할 서비스 워커파일에 에러가 나면 업데이트 하지 않는다&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;에러가 났다면 chrome 개발자 도구 기준으로 Application-Service Workers에서 확인 가능하다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/d0cc0/sw.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 91.13924050632912%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC30lEQVR42m1U7ZLaOBD0S9ymNiz425YlS7LkD/DCsrBwJLeXZJNU3v9VOjUD5tjU/ega12hozUy3CPp+hca1qHUDpQyM9cgLASEq5EUJ3w7QuoEx7nxuHLRpUGvLtXSmjUNdWzjXIdhud3h9/YKm8cjzEnlecGxcB9/2cL5HUVbIsuJyfkaS5AjD+IooSjgG6/UGX7+94fTpM5bLEW3XQ0oFVRvuwloPYxqUQkIIxV1KpfmSOE6RJNk7BObSLrEvFhEn4ySDEBJSatjGo1IWeZIjChOuWSxCrifCPxFsNlvsdi/Yvxx5N1RIpNMY9K10i8EvUVU1yrLi7vOsQBRNpMl/hM61+Pb2A5//+Ze7mkimcdK0QG0MumHkfZIQtFtlWsRxxvW3YMLD8QRrHWaz+ZWMDimWpYTShtdSVYovpVhJiywrkaZ0aX5F4JzHfn/A4fA3F08jT6qRokRGYpzJarZVkqTIspzVv0WgtcXj+gnPz3tWdCKk7opCsLq0M3exEflSKc01f5Ix4Tiu4Xx3tsaNFShSV5WsuSu2UW1YOFEpFEIizQse+Z3KZOiXlyOOx08Yxw3fMh3SNxmYRiUxjHUQhUAkKsxOB9w/jiwMqRxd9h70/RJdN/A4rPKlw0k18h2J0PUrHpe6o1w4j5DHMfI0RRjeqEzFh8OJO6SXQkmyyuR86jTPBRPR+GT2LC+RUa4sGVR/3aG1Dd6+/8SPn7/Qtv11VHrwtmkZ9JoI8ipGyTXpBe9EoTF92+Hp6Rm73QHDMLI4fthifH7FsD5B1Q2krPkt33ru/xAoLqz4B6vVGqtxc/6L0g2876/PjcA+FOpsbIJQEKVk89NldB7UjUc7PML3K5imhe+XcN2AxneorYPUFrK2EEqjJAvVhiOB8ta1aPsllLaojUOwjmLsRYVtKbBahFjOFxijGMMixDBfoH+Yo5s9oJ09wN1/5O/hJqfuPkDff4T86w7y7gN+AyrLGWJhe9jxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;개발자 도구에서의 Service Worker확인&quot;
-        title=&quot;&quot;
-        src=&quot;/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/f058b/sw.png&quot;
-        srcset=&quot;/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/c26ae/sw.png 158w,
-/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/6bdcf/sw.png 315w,
-/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/f058b/sw.png 630w,
-/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/d0cc0/sw.png 732w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./sw.png&quot; alt=&quot;개발자 도구에서의 Service Worker확인&quot;&gt;&lt;/p&gt;
 &lt;h3&gt;3. 설치된 새 서비스 워커의 활성화 조건&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;이전 서비스 워커가 제어하는 클라이언트(탭)이 없을 때 활성화 된다. 즉 모든 탭을 닫고 다시 들어가야 한다.&lt;/li&gt;
@@ -211,38 +120,8 @@ self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/914ae/sw2.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 57.59493670886076%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3klEQVR42nVT7W7bMAz0awwDYsvWh/VhW7LiOlvcZUG7rmiWZdj7v8sNZBsvHbAfBCWaPh7JU+F9j65PCCHChx5KaShtENOW4/0wInSR7+SHYeRY10f2MWaOkSes4vn5Bd53aFsLpQwnTXefsJ1mWBdgjGVvbYBpHcpSoKrq1fheijVenM8X7PcLUhoRAgE7OBcQwsBgTaO4UCM1n+ta/teEkCgIQIgGm81rBSk1tLHouggbRk6iOOUIUUO8nSuy6/mGcXE6nfH4+J2rX38mo4p9ysjbGS706GNm1ptSYPNvyytwg+LldObW6MMr7YZNKoM0JuTdHsdpwq9xwNO84Og7zLJGrVpIHke7siRfnH78xHS3ewdIlZihDzC+x2fb4qlVmLuEe+fx1UhI46CV4UVZ6zmfW16WA5bly9rytZrWLcugtR6udZhbg1xXyI2ApuU0ihnSf8OQ2BOpgi4h9OuWCFBryzKhmaW0RcoT/JAhGo2q0bxx+WYEFOOIlDLfi8PhCGJJWrzOj3XnArOjdqggScm4AGnsu1nzvKVmuRH4Ckgt3iYRfXo522nHYifxftzN+HC/R6U0RFmv0rnddnG5/MbDwzcG/Ks3ShTMcoiZnyDPmBZX1usCbglc7Q9zcGJVRxU6gAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;개발자 도구에서의 Service Worker확인2(skipWating)&quot;
-        title=&quot;&quot;
-        src=&quot;/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/f058b/sw2.png&quot;
-        srcset=&quot;/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/c26ae/sw2.png 158w,
-/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/6bdcf/sw2.png 315w,
-/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/f058b/sw2.png 630w,
-/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/914ae/sw2.png 860w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;다음은 실제로 코드를 작성하여 짧게 사용해보려 한다 &lt;a href=&quot;/my-blog/%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9B%8C%EC%BB%A4-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0&quot;&gt;서비스워커 사용해보기&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[짧은 vitest 사용후기]]></title><description><![CDATA[Vitest? 공식 사이트의 말을 빌리자면... Vite-native unit test framework 짧게 써보고 느낀점 1. 설정이 편하다 Vite-native라는 말을 쓴 것 답게 vite config파일 안에 설정한 alias…]]></description><link>https://read0more.github.io/blog/짧은-vitest-사용후기/</link><guid isPermaLink="false">https://read0more.github.io/blog/짧은-vitest-사용후기/</guid><pubDate>Sun, 26 Feb 2023 10:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;Vitest?&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;./sw2.png&quot; alt=&quot;개발자 도구에서의 Service Worker확인2(skipWating)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;다음은 실제로 코드를 작성하여 짧게 사용해보려 한다 &lt;a href=&quot;/my-blog/%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9B%8C%EC%BB%A4-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0&quot;&gt;서비스워커 사용해보기&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[짧은 vitest 사용후기]]></title><description><![CDATA[Vitest? 공식 사이트의 말을 빌리자면... Vite-native unit test framework 짧게 써보고 느낀점 1. 설정이 편하다 Vite-native라는 말을 쓴 것 답게 vite config파일 안에 설정한 alias…]]></description><link>https://read0more.github.io/blog/짧은-vitest-사용후기/</link><guid isPermaLink="false">https://read0more.github.io/blog/짧은-vitest-사용후기/</guid><pubDate>Sun, 26 Feb 2023 10:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;Vitest?&lt;/h2&gt;
 &lt;p&gt;공식 사이트의 말을 빌리자면...&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Vite-native unit test framework&lt;/p&gt;
@@ -258,59 +137,29 @@ self&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 &lt;li&gt;정확한 벤치마킹을 해보진 않았지만 watch모드의 경우 체감이 될 정도로 jest보다 빨랐다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;사용한 설정 파일(vite.config.ts)&lt;/h2&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;/// &amp;lt;reference types=&quot;vitest&quot; /&gt;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; defineConfig &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;vite&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; react &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;@vitejs/plugin-react&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/// &amp;#x3C;reference types=&quot;vitest&quot; /&gt;
+import { defineConfig } from &apos;vite&apos;;
+import react from &apos;@vitejs/plugin-react&apos;;
 
-&lt;span class=&quot;token comment&quot;&gt;// https://vitejs.dev/config/&lt;/span&gt;
-&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;defineConfig&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;test&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;globals&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;environment&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;jsdom&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;setupFiles&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./setupTests.ts&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;include&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;**/__tests__/*.{ts,tsx}&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;plugins&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;react&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token literal-property property&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-    &lt;span class=&quot;token literal-property property&quot;&gt;alias&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
-      &lt;span class=&quot;token string-property property&quot;&gt;&apos;@&apos;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;/src&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+// https://vitejs.dev/config/
+export default defineConfig({
+  test: {
+    globals: true,
+    environment: &apos;jsdom&apos;,
+    setupFiles: &apos;./setupTests.ts&apos;,
+    include: [&apos;**/__tests__/*.{ts,tsx}&apos;],
+  },
+  plugins: [react()],
+  resolve: {
+    alias: {
+      &apos;@&apos;: &apos;/src&apos;,
+    },
+  },
+});
+&lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;위의 설정 파일에서 test property가 vitest에 대해 설정한 전부다.&lt;/p&gt;
 &lt;h2&gt;VSC 익스텐션을 사용한 모습&lt;/h2&gt;
-&lt;p&gt;&lt;span
-      class=&quot;gatsby-resp-image-wrapper&quot;
-      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; &quot;
-    &gt;
-      &lt;a
-    class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/my-blog/static/b6d625e953f884553e55314bc6233fea/3dde1/vsc.png&quot;
-    style=&quot;display: block&quot;
-    target=&quot;_blank&quot;
-    rel=&quot;noopener&quot;
-  &gt;
-    &lt;span
-    class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 32.278481012658226%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGElEQVR42oXM0U6DMACFYd5D2jEolEJZS+ks2xhGExf1/d/nN5KpiTdefDk55+Jkc5o5ny+klEhpJsa4ORw8qlF412O7Fm16zODpekvXDwx2YPKOg3PotqXRGlXXZG4cua4ry3IlhAmtW+pGY5qGqdcsR881RtbjkckFomlJumGsKnxZMpYlYb8nFAXDriCrW006zazrE4+PaTt1zlNWitcQeHeOVbe89B0vXcezMax1zakomKVkUiXnaAm9IvQ1mbeW2+3G29sHl8tCCJFxnNCtQeY58uEB8ce25zk7IRAiR+53iJ3cZKMPnE4L8Ziw1mGMZRg8zo0IKf+3nf7KqkpRltVGqfrHV5dSIoVAiu+8+97vh1u/+wRtj7EeV7vuJgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
-  &gt;&lt;/span&gt;
-  &lt;img
-        class=&quot;gatsby-resp-image-image&quot;
-        alt=&quot;VSC vitest extension&quot;
-        title=&quot;&quot;
-        src=&quot;/my-blog/static/b6d625e953f884553e55314bc6233fea/f058b/vsc.png&quot;
-        srcset=&quot;/my-blog/static/b6d625e953f884553e55314bc6233fea/c26ae/vsc.png 158w,
-/my-blog/static/b6d625e953f884553e55314bc6233fea/6bdcf/vsc.png 315w,
-/my-blog/static/b6d625e953f884553e55314bc6233fea/f058b/vsc.png 630w,
-/my-blog/static/b6d625e953f884553e55314bc6233fea/40601/vsc.png 945w,
-/my-blog/static/b6d625e953f884553e55314bc6233fea/3dde1/vsc.png 1018w&quot;
-        sizes=&quot;(max-width: 630px) 100vw, 630px&quot;
-        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
-        loading=&quot;lazy&quot;
-        decoding=&quot;async&quot;
-      /&gt;
-  &lt;/a&gt;
-    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./vsc.png&quot; alt=&quot;VSC vitest extension&quot;&gt;&lt;/p&gt;
 &lt;h2&gt;결론&lt;/h2&gt;
 &lt;p&gt;react 프로젝트를 시작할 때 vite를 애용하고 있는데, 앞으로는 vitest도 같이 애용하게 될 것 같다. 또한 공식 사이트의 말을 다시 한 번 더 빌리자면&lt;/p&gt;
 &lt;blockquote&gt;

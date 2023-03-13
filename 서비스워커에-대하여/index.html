@@ -24,44 +24,14 @@
 <h2>서비스 워커의 업데이트 특징</h2>
 <h3>1. 기존 서비스 워커 파일과의 <strong>바이트 단위 비교</strong>로 구분하여 업데이트 한다.</h3>
 <p>이게 뭐가 좋냐하면...그동안 실무를 하면서 js,css파일에 대한 수정사항을 즉각 반영하려 이전 캐싱을 무효화 하기 위해 다음과 같이 사용하는 경우를 자주 볼 수 있었다.</p>
-<p><code class="language-text">&lt;script src="/js/some.js?ver=1.0.0">&lt;/script></code></p>
+<p><code>&#x3C;script src="/js/some.js?ver=1.0.0">&#x3C;/script></code></p>
 <p>더 최악은 아예 querystring에 timestamp를 넣어서 아예 캐싱을 막아버리는 경우도 자주 보았다.</p>
 <p>하지만 서비스 워커는 이전 파일에서 변경점이 있는지 알아서 구분해주기 때문에 이런 귀찮은 작업을 할 필요가 없는것이다.</p>
 <h3>2. 업데이트할 서비스 워커파일에 에러가 나면 업데이트 하지 않는다</h3>
 <ul>
 <li>에러가 났다면 chrome 개발자 도구 기준으로 Application-Service Workers에서 확인 가능하다.</li>
 </ul>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/d0cc0/sw.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 91.13924050632912%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC30lEQVR42m1U7ZLaOBD0S9ymNiz425YlS7LkD/DCsrBwJLeXZJNU3v9VOjUD5tjU/ega12hozUy3CPp+hca1qHUDpQyM9cgLASEq5EUJ3w7QuoEx7nxuHLRpUGvLtXSmjUNdWzjXIdhud3h9/YKm8cjzEnlecGxcB9/2cL5HUVbIsuJyfkaS5AjD+IooSjgG6/UGX7+94fTpM5bLEW3XQ0oFVRvuwloPYxqUQkIIxV1KpfmSOE6RJNk7BObSLrEvFhEn4ySDEBJSatjGo1IWeZIjChOuWSxCrifCPxFsNlvsdi/Yvxx5N1RIpNMY9K10i8EvUVU1yrLi7vOsQBRNpMl/hM61+Pb2A5//+Ze7mkimcdK0QG0MumHkfZIQtFtlWsRxxvW3YMLD8QRrHWaz+ZWMDimWpYTShtdSVYovpVhJiywrkaZ0aX5F4JzHfn/A4fA3F08jT6qRokRGYpzJarZVkqTIspzVv0WgtcXj+gnPz3tWdCKk7opCsLq0M3exEflSKc01f5Ix4Tiu4Xx3tsaNFShSV5WsuSu2UW1YOFEpFEIizQse+Z3KZOiXlyOOx08Yxw3fMh3SNxmYRiUxjHUQhUAkKsxOB9w/jiwMqRxd9h70/RJdN/A4rPKlw0k18h2J0PUrHpe6o1w4j5DHMfI0RRjeqEzFh8OJO6SXQkmyyuR86jTPBRPR+GT2LC+RUa4sGVR/3aG1Dd6+/8SPn7/Qtv11VHrwtmkZ9JoI8ipGyTXpBe9EoTF92+Hp6Rm73QHDMLI4fthifH7FsD5B1Q2krPkt33ru/xAoLqz4B6vVGqtxc/6L0g2876/PjcA+FOpsbIJQEKVk89NldB7UjUc7PML3K5imhe+XcN2AxneorYPUFrK2EEqjJAvVhiOB8ta1aPsllLaojUOwjmLsRYVtKbBahFjOFxijGMMixDBfoH+Yo5s9oJ09wN1/5O/hJqfuPkDff4T86w7y7gN+AyrLGWJhe9jxAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="개발자 도구에서의 Service Worker확인"
-        title=""
-        src="/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/f058b/sw.png"
-        srcset="/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/c26ae/sw.png 158w,
-/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/6bdcf/sw.png 315w,
-/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/f058b/sw.png 630w,
-/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/d0cc0/sw.png 732w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-  </a>
-    </span></p>
+<p><img src="./sw.png" alt="개발자 도구에서의 Service Worker확인"></p>
 <h3>3. 설치된 새 서비스 워커의 활성화 조건</h3>
 <ol>
 <li>이전 서비스 워커가 제어하는 클라이언트(탭)이 없을 때 활성화 된다. 즉 모든 탭을 닫고 다시 들어가야 한다.</li>
@@ -72,41 +42,11 @@
 </ul>
 </li>
 </ol>
-<p><span
-      class="gatsby-resp-image-wrapper"
-      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 630px; "
-    >
-      <a
-    class="gatsby-resp-image-link"
-    href="/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/914ae/sw2.png"
-    style="display: block"
-    target="_blank"
-    rel="noopener"
-  >
-    <span
-    class="gatsby-resp-image-background-image"
-    style="padding-bottom: 57.59493670886076%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3klEQVR42nVT7W7bMAz0awwDYsvWh/VhW7LiOlvcZUG7rmiWZdj7v8sNZBsvHbAfBCWaPh7JU+F9j65PCCHChx5KaShtENOW4/0wInSR7+SHYeRY10f2MWaOkSes4vn5Bd53aFsLpQwnTXefsJ1mWBdgjGVvbYBpHcpSoKrq1fheijVenM8X7PcLUhoRAgE7OBcQwsBgTaO4UCM1n+ta/teEkCgIQIgGm81rBSk1tLHouggbRk6iOOUIUUO8nSuy6/mGcXE6nfH4+J2rX38mo4p9ysjbGS706GNm1ptSYPNvyytwg+LldObW6MMr7YZNKoM0JuTdHsdpwq9xwNO84Og7zLJGrVpIHke7siRfnH78xHS3ewdIlZihDzC+x2fb4qlVmLuEe+fx1UhI46CV4UVZ6zmfW16WA5bly9rytZrWLcugtR6udZhbg1xXyI2ApuU0ihnSf8OQ2BOpgi4h9OuWCFBryzKhmaW0RcoT/JAhGo2q0bxx+WYEFOOIlDLfi8PhCGJJWrzOj3XnArOjdqggScm4AGnsu1nzvKVmuRH4Ckgt3iYRfXo522nHYifxftzN+HC/R6U0RFmv0rnddnG5/MbDwzcG/Ks3ShTMcoiZnyDPmBZX1usCbglc7Q9zcGJVRxU6gAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
-  ></span>
-  <img
-        class="gatsby-resp-image-image"
-        alt="개발자 도구에서의 Service Worker확인2(skipWating)"
-        title=""
-        src="/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/f058b/sw2.png"
-        srcset="/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/c26ae/sw2.png 158w,
-/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/6bdcf/sw2.png 315w,
-/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/f058b/sw2.png 630w,
-/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/914ae/sw2.png 860w"
-        sizes="(max-width: 630px) 100vw, 630px"
-        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
-        loading="lazy"
-        decoding="async"
-      />
-  </a>
-    </span></p>
-<p>다음은 실제로 코드를 작성하여 짧게 사용해보려 한다 <a href="/my-blog/%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9B%8C%EC%BB%A4-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0">서비스워커 사용해보기</a>.</p></section><hr/><footer><div class="bio"><p><strong>같이 일하고 싶은 개발자를 목표로 하는 프론트엔드 개발자입니다.</strong><p>사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.</p></p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/my-blog/짧은-vitest-사용후기/">← <!-- -->짧은 vitest 사용후기</a></li><li><a rel="next" href="/my-blog/서비스워커-사용해보기/">서비스워커 사용해보기<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2023<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/서비스워커에-대하여/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
+<p><img src="./sw2.png" alt="개발자 도구에서의 Service Worker확인2(skipWating)"></p>
+<p>다음은 실제로 코드를 작성하여 짧게 사용해보려 한다 <a href="/my-blog/%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9B%8C%EC%BB%A4-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0">서비스워커 사용해보기</a>.</p></section><hr/><footer><div class="bio"><p><strong>같이 일하고 싶은 개발자를 목표로 하는 프론트엔드 개발자입니다.</strong><p>사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.</p></p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/my-blog/짧은-vitest-사용후기/">← <!-- -->짧은 vitest 사용후기</a></li><li><a rel="next" href="/my-blog/서비스워커-사용해보기/">서비스워커 사용해보기<!-- --> →</a></li></ul></nav></main><footer>© <!-- -->2023<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/서비스워커에-대하여/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
             window.___chunkMapping="{\"app\":[\"/app-51304ea0fbee0d846b06.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-9f65097b0cfddb2d0374.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-528467f3e5d7e2ebe424.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-faac9389515fd2b786a9.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-8d8c2bf0e59e0996755a.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="581acf972e1a06c716fc";</script><script src="/my-blog/webpack-runtime-e15a9241dd9507b05eed.js" async></script><script src="/my-blog/framework-195f9a31e5a4e6cebf51.js" async></script><script src="/my-blog/app-51304ea0fbee0d846b06.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="4d882aa5632d244a24c0";</script><script src="/my-blog/webpack-runtime-0d40674801a0dc27303f.js" async></script><script src="/my-blog/framework-195f9a31e5a4e6cebf51.js" async></script><script src="/my-blog/app-51304ea0fbee0d846b06.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
