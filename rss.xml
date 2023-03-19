@@ -1,4 +1,56 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 13 Mar 2023 12:59:10 GMT</lastBuildDate><item><title><![CDATA[DOM 요소의 swap]]></title><description><![CDATA[이미 시간이 꽤 지났지만 바닐라JS로 토이프로젝트를 하던 도중 경험한 일이다. 특정 요소 두 개를 swap하고 싶은데... 토이프로젝트를 하던 도중 canvas가 담긴 요소끼리 swap…]]></description><link>https://read0more.github.io/blog/요소의-swap/</link><guid isPermaLink="false">https://read0more.github.io/blog/요소의-swap/</guid><pubDate>Mon, 13 Mar 2023 21:32:19 GMT</pubDate><content:encoded>&lt;p&gt;이미 시간이 꽤 지났지만 바닐라JS로 토이프로젝트를 하던 도중 경험한 일이다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 19 Mar 2023 11:08:54 GMT</lastBuildDate><item><title><![CDATA[모노레포에 대해]]></title><description><![CDATA[모노레포? Monolithic Repositories. 즉 두 개 이상의 프로젝트가 동일한 repository에 구성 된 것을 말한다. 장점 귀찮게 IDE를 스위칭 해가면서 볼 필요가 없다 공통되는 코드 및 설정(prettier, eslint…]]></description><link>https://read0more.github.io/blog/workspaces를-통한-모노레포-생성/</link><guid isPermaLink="false">https://read0more.github.io/blog/workspaces를-통한-모노레포-생성/</guid><pubDate>Sun, 19 Mar 2023 17:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;모노레포?&lt;/h2&gt;
+&lt;p&gt;Monolithic Repositories. 즉 두 개 이상의 프로젝트가 동일한 repository에 구성 된 것을 말한다.&lt;/p&gt;
+&lt;h2&gt;장점&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;귀찮게 IDE를 스위칭 해가면서 볼 필요가 없다&lt;/li&gt;
+&lt;li&gt;공통되는 코드 및 설정(prettier, eslint 같은)의 중복을 없앨 수 있다.&lt;/li&gt;
+&lt;li&gt;공통적으로 종속된 패키지도 관리가 편하다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;단점&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;종속성 충돌 문제. 예를 들어 어떤 패키지가 특정 버전의 패키지를 필요로 한다면 다른 버전의 패키지를 사용할 경우 일어나는 충돌을 말한다. 해당 부분에 대한 해결책은 다음 글에서 다루려한다.&lt;/li&gt;
+&lt;li&gt;권한적인 문제. 만약 각 패키지가 다른 팀이 담당하고 있다면 설령 다른 팀이라고 할지라도 코드를 수정하고 올릴 수 있다. 이 문제에 대한 처리를 해야 할 것이다.&lt;/li&gt;
+&lt;li&gt;패키지중 하나가 문제가 생긴다면 전체적으로 문제가 생긴다.&lt;/li&gt;
+&lt;li&gt;파일이 많아지니 속도가 느려진다. IDE, Git, 빌드 시 등...실제로 이러한 문제로 Uber의 경우는 다시 멀티레포로 돌아가기도 했다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;특정 패키지를 지정할 때&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;npm --w {각 패키지의 package.json의 name 값}
+or
+yarn workspace {각 패키지의 package.json의 name 값}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;예를들어 server 패키지에 express를 추가하고 싶다면&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm i express --w server
+or
+yarn workspace server add express
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2&gt;package.json 예시&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+  &quot;name&quot;: &quot;root&quot;,
+  &quot;private&quot;: true,
+  &quot;workspaces&quot;: [
+    &quot;packages/*&quot;
+  ],
+  &quot;scripts&quot;: {
+    &quot;dev&quot;: &quot;concurrently \&quot;wsrun --parallel dev\&quot;&quot;
+  },
+  &quot;devDependencies&quot;: {
+    &quot;concurrently&quot;: &quot;^7.6.0&quot;,
+    &quot;wsrun&quot;: &quot;^5.2.4&quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;workspaces에
+concurrently는 여러 명령을 동시에 실행할 때 도움을 주는 패키지이다. monorepo에 관한 글이기 때문에 왜 사용하는지에 대해서는 &lt;a href=&quot;https://github.com/open-cli-tools/concurrently#why&quot;&gt;링크&lt;/a&gt;만 남기고 생략한다.&lt;/p&gt;
+&lt;p&gt;wsrun은 각 패키지에 있는 script를 한번에 실행시키려고 추가하였다. 예를 들어 package가 server, client 두 개가 있다면&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&quot;dev&quot;: &quot;concurrently \&quot;yarn workspace server dev\&quot; \&quot;yarn workspace client dev\&quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;이건&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;&quot;dev&quot;: &quot;concurrently \&quot;wsrun --parallel dev\&quot;&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;이거랑 똑같다.&lt;/p&gt;
+&lt;h2&gt;결론&lt;/h2&gt;
+&lt;p&gt;Cient와 Backend가 같은 언어로 동작하고, 프로젝트의 사이즈가 너무 크지 않을 때 편할 것으로 보인다. 특히 tRPC를 사용해 보면서 정말 편하다고 느꼈다.
+하지만 모노레포를 사용함으로서 초기 설정도 훨씬 수고가 많이 들고 프로젝트가 커지면 커질수록 문제가 발생할 수 있다. 언제나 그렇지만 모든 문제를 한 번에 다 해결해 줄 수 있는 은탄환 따위는 없다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[DOM 요소의 swap]]></title><description><![CDATA[이미 시간이 꽤 지났지만 바닐라JS로 토이프로젝트를 하던 도중 경험한 일이다. 특정 요소 두 개를 swap하고 싶은데... 토이프로젝트를 하던 도중 canvas가 담긴 요소끼리 swap…]]></description><link>https://read0more.github.io/blog/요소의-swap/</link><guid isPermaLink="false">https://read0more.github.io/blog/요소의-swap/</guid><pubDate>Mon, 13 Mar 2023 21:32:19 GMT</pubDate><content:encoded>&lt;p&gt;이미 시간이 꽤 지났지만 바닐라JS로 토이프로젝트를 하던 도중 경험한 일이다.&lt;/p&gt;
 &lt;h2&gt;특정 요소 두 개를 swap하고 싶은데...&lt;/h2&gt;
 &lt;p&gt;토이프로젝트를 하던 도중 canvas가 담긴 요소끼리 swap 해야 할 일이 생겼고, 어떻게 할까? 생각하던 도중 바로 들었던 생각은&lt;/p&gt;
 &lt;blockquote&gt;
