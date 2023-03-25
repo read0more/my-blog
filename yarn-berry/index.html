@@ -28,7 +28,39 @@ berry는 npm의 각종 문제점을 개선해준다. <a href="https://toss.tech/
 <ul>
 <li>Yarn v1과 NPM은 중복 설치되는 패키지를 줄이기 위해 호이스팅 기법을 사용한다. 여기까지만 들었을때는 그냥 좋다고 생각할 수도 있겠지만</li>
 </ul>
-<p><img src="./pd.png" alt="Phantom Dependency"></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/081d5/pd.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 44.5945945945946%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB2ElEQVR42m2STYvTUBSG81PEvX/EvRt3ggjOwpUuBRfOSh3QhQwKgjAoA+IXohudxYAOVgc7A5V0sJM2bZOmzcfNR9vcJDePJG21iC9cLufch3POvffVAIoix45crNjHmUW4SQBlSbm2KiWzCNu3caaC8VQwCBzCioWaUUqhqTynwicfn9J5cIXhww0i/WABqeIPXCpFFYWdJqf3L9O+dwnn9Vadq85WjTWWSg4/YO7cZvR8E9lrrdJkWUZRFKhC1bF0elgv7tLfvUNy8GbZcK1gq9Fn7+URbpAzilMskRLNJH3TJE1ThBBkmVyWL5EZTKZgJTBKVDVefdWVtPfbOtvXvtLXPURk405sojDEMAx836+hyJ/Tbg4YWwFGcMSxtYcvRngTt2aiKMZ1PaSUaO3oC9+CV4i5S3O/x89Ds76mZVnMpvO64Oe3HW5deMen3RaPvYvc6J7lV9xgPPAZOdUAAuO0QygCtCeDq9wcnOPQ2OfRxg+ebX7H9wJ0XcfzPBYuUGSyqPe8lEg1R6mifjOZ5diTkOE4YDgW1acsLFGBJ34DIzhmXSvL/E2s74vAD0KMronnCzRVLh7UTk+43j3D1vA8WS5rtvzHi/9btUOSGLPXI44jfgNdeZ8Jc2u2XQAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Phantom Dependency"
+        title=""
+        src="/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/fcda8/pd.png"
+        srcset="/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/12f09/pd.png 148w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/e4a3f/pd.png 295w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/fcda8/pd.png 590w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/efc66/pd.png 885w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/c83ae/pd.png 1180w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/081d5/pd.png 1264w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
 <ul>
 <li>상기 이미지 처럼 원래 package-1에서 가져올 수 없어야 하는 **B(1.0)**도 가져올 수 있게 되버렸다. 만약 누가 실수로라도 **B(1.0)**을 사용을 했고, 누군가가 B(1.0)패키지를 포함하는 패키지가 더 이상 사용되지 않는다고 생각해서 제거했다면 소리없이 같이 사라져 버릴 것이다.</li>
 </ul>
@@ -57,7 +89,39 @@ berry는 npm의 각종 문제점을 개선해준다. <a href="https://toss.tech/
 <ul>
 <li>깊은 node_modules 디렉토리를 생성하지 않아도 된다. 또한 .yarn/cache에 zip파일로 있는 압축파일을 repo에 올려 같이 관리를 하면 추가 없이 바로 실행이 가능하다. 기존 node_modules와 같이 많은 파일과 용량이 컸다면 사용할 수 없었겠지만 PnP전략으로 인해 zero-install이 가능해 졌다. 기존 방식으로는 브랜치를 바꾸고 의존성 설치를 다시하고...이런 작업이 필요가 없다.</li>
 </ul>
-<p><img src="./zi.png" alt="Zero Install">
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/my-blog/static/a0926f47d1d310e051ce5839073b24c8/a83dd/zi.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 61.48648648648649%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACHElEQVR42lWS2VbbMBCGfduNpRBiS7KsfbFjOyQQKG1Pr6C9aOhN+/6P8vdoCBy4+DyLrF/SzFQuJOjpDnb9HW7zAypfIsaIVipwIcFEC9NZTOMMHxOs85jmNWLM6JSGcwH9sHqJq05bhDRAW48ibn2EdQHaOPgQ4Sn2MGXdB4SQ4HyEOayX/8paEVTaorJKYcoJVhv4EAhtLDqlaEPuexIqpxtjKQ4h0nqI5TBHfs4Z2hhUPkYopbEaR7rJsm5QNw24EOCc46Lh4PESzGRon9H3PZY1w+KixvnFkuxiWeN88eRXUkrITkJphVa2YJwTXHDwVsKYGrvtEXbbY9xeneLL9SlutsdvKPnb7QnZSoYBabqEc5Zu1jB2oIGQGuOK4d/+M/7+PsP+/j0eHz7g8edH/Cn8+oT9/TuK9w/vKa664QpxvUMr+BtB8rmA0hxTv8CQz5DCMXI4IfvMS+wLR6jU6hp5cwPvDIm8puEMstP4Ot9hGGZYn6ijxgZYFwmlHdEwCVYLVKrfoN/cwhqNmjGqX1MovhBopYRWCrLryH9NyZUOl/oXW3KVdAHD7htSimg7hbbrILWCMga8bSkX+xXdtAy6aDui+PowRik9dV92ClV5Wowe2+0G8zxhvZ4xzRP6oadOt9pATzcQrXgapQPlJfWh1i8lYgxV+aScSGg1rogimFKijUJKWKsxTiNSzsTzEBfB5rlEhzL9Bx91UapO6c7kAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="Zero Install"
+        title=""
+        src="/my-blog/static/a0926f47d1d310e051ce5839073b24c8/fcda8/zi.png"
+        srcset="/my-blog/static/a0926f47d1d310e051ce5839073b24c8/12f09/zi.png 148w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/e4a3f/zi.png 295w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/fcda8/zi.png 590w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/efc66/zi.png 885w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/c83ae/zi.png 1180w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/a83dd/zi.png 1482w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
 <em>yarn berry또한 .yarn/cache 디렉토리를 같이 repo에 올려 관리하고 있다.</em>
 4. 엄격한 의존성 관리</p>
 <ul>
@@ -73,7 +137,39 @@ berry는 npm의 각종 문제점을 개선해준다. <a href="https://toss.tech/
 <ol>
 <li>VSCode 익스텐션 ZipFs 설치(VSCode가 zip의존성을 읽을 수 있게 해준다)</li>
 </ol>
-<p><img src="./zip.png" alt="ZipFS">
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/my-blog/static/1db220041cd22c8624b08248b4b48699/78612/zip.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 29.72972972972973%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABdElEQVR42nWRvW7TUBiGcwtIrZo45ziOj5O4PnaPU9t1UodgpNDKkEL5mSok/qQuLIyVkKquCAk2boAbQGIuU8XCwMTYuZfQ8UE5SAxIDI/eb3r0vvpa0unQv7VEPz9BVXu4Tpu8KKjrmiRJiOOY6XRKWZZkeU45rSjKCWE4whiDUgopJa7r2mz1bx+Sfbpg8fkn8cdzNrKaelbRLA/YMobtLOfO3j7V7Ca7Zc79Rcn+vMCY1Ep7vR6O4yCEsNKW9/KMZ19+cfb1Byfnlzx8c0rku2wnm6TxJnroM9YjtpIYHYVM0hG5CSmKAq21ZbVklbZhe/6At98u+X51zcXVNR/ev8ObNJhHrwmqJePDY6J7r1CRIYk1wTDEVwOCILAMBn/u1XTbUHYdhovHZMen7Nx9wiBQ6PmS8cELollD2hxhmqekO7vEOrLTpBA2/8U2XFnFxjqdtRu019foCkFfdvFlB78n6YsOyu0SKB/P8/4+4H/8BpHbxOEkudK9AAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="ZipFS"
+        title=""
+        src="/my-blog/static/1db220041cd22c8624b08248b4b48699/fcda8/zip.png"
+        srcset="/my-blog/static/1db220041cd22c8624b08248b4b48699/12f09/zip.png 148w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/e4a3f/zip.png 295w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/fcda8/zip.png 590w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/efc66/zip.png 885w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/c83ae/zip.png 1180w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/78612/zip.png 1260w"
+        sizes="(max-width: 590px) 100vw, 590px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span>
 2. yarn set version berry
 3. 1로 인해 생성된 <code>.yarnrc.yml</code>파일에 다음 내용을 추가한다.<code>nodeLinker: "pnp"</code>
 4. yarn
@@ -99,6 +195,6 @@ berry는 npm의 각종 문제점을 개선해준다. <a href="https://toss.tech/
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"app\":[\"/app-51304ea0fbee0d846b06.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-9f65097b0cfddb2d0374.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-528467f3e5d7e2ebe424.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-faac9389515fd2b786a9.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-8d8c2bf0e59e0996755a.js\"]}";
+            window.___chunkMapping="{\"app\":[\"/app-cd25132ba89ff824c5d5.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-9f65097b0cfddb2d0374.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-528467f3e5d7e2ebe424.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-faac9389515fd2b786a9.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-8d8c2bf0e59e0996755a.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="e942177f3b6de08538ed";</script><script src="/my-blog/webpack-runtime-0d40674801a0dc27303f.js" async></script><script src="/my-blog/framework-195f9a31e5a4e6cebf51.js" async></script><script src="/my-blog/app-51304ea0fbee0d846b06.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="7f798c248e583a75afeb";</script><script src="/my-blog/webpack-runtime-89e6833e07dd78dd642c.js" async></script><script src="/my-blog/framework-0ff3ad83d0d20e5cd061.js" async></script><script src="/my-blog/app-cd25132ba89ff824c5d5.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

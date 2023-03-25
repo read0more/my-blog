@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Mar 2023 10:08:11 GMT</lastBuildDate><item><title><![CDATA[Yarn Berry PnP구성]]></title><description><![CDATA[Yarn Berry? yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Mar 2023 10:38:33 GMT</lastBuildDate><item><title><![CDATA[Yarn Berry PnP구성]]></title><description><![CDATA[Yarn Berry? yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
 berry는 npm…]]></description><link>https://read0more.github.io/blog/yarn-berry/</link><guid isPermaLink="false">https://read0more.github.io/blog/yarn-berry/</guid><pubDate>Sat, 25 Mar 2023 19:05:19 GMT</pubDate><content:encoded>&lt;h2&gt;Yarn Berry?&lt;/h2&gt;
 &lt;p&gt;yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
 berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://toss.tech/article/node-modules-and-yarn-berry&quot;&gt;토스 기술 블로그&lt;/a&gt;에 굉장히 잘 정리되어 있는데, 본 글은 링크의 글을 보고 알게 된 것을 정리한 글이다.&lt;/p&gt;
@@ -27,7 +27,39 @@ berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://to
 &lt;ul&gt;
 &lt;li&gt;Yarn v1과 NPM은 중복 설치되는 패키지를 줄이기 위해 호이스팅 기법을 사용한다. 여기까지만 들었을때는 그냥 좋다고 생각할 수도 있겠지만&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;./pd.png&quot; alt=&quot;Phantom Dependency&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/081d5/pd.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 44.5945945945946%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAABYlAAAWJQFJUiTwAAAB2ElEQVR42m2STYvTUBSG81PEvX/EvRt3ggjOwpUuBRfOSh3QhQwKgjAoA+IXohudxYAOVgc7A5V0sJM2bZOmzcfNR9vcJDePJG21iC9cLufch3POvffVAIoix45crNjHmUW4SQBlSbm2KiWzCNu3caaC8VQwCBzCioWaUUqhqTynwicfn9J5cIXhww0i/WABqeIPXCpFFYWdJqf3L9O+dwnn9Vadq85WjTWWSg4/YO7cZvR8E9lrrdJkWUZRFKhC1bF0elgv7tLfvUNy8GbZcK1gq9Fn7+URbpAzilMskRLNJH3TJE1ThBBkmVyWL5EZTKZgJTBKVDVefdWVtPfbOtvXvtLXPURk405sojDEMAx836+hyJ/Tbg4YWwFGcMSxtYcvRngTt2aiKMZ1PaSUaO3oC9+CV4i5S3O/x89Ds76mZVnMpvO64Oe3HW5deMen3RaPvYvc6J7lV9xgPPAZOdUAAuO0QygCtCeDq9wcnOPQ2OfRxg+ebX7H9wJ0XcfzPBYuUGSyqPe8lEg1R6mifjOZ5diTkOE4YDgW1acsLFGBJ34DIzhmXSvL/E2s74vAD0KMronnCzRVLh7UTk+43j3D1vA8WS5rtvzHi/9btUOSGLPXI44jfgNdeZ8Jc2u2XQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Phantom Dependency&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/fcda8/pd.png&quot;
+        srcset=&quot;/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/12f09/pd.png 148w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/e4a3f/pd.png 295w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/fcda8/pd.png 590w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/efc66/pd.png 885w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/c83ae/pd.png 1180w,
+/my-blog/static/30cb503360fcc1ca5e0cd63c2160d7de/081d5/pd.png 1264w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;상기 이미지 처럼 원래 package-1에서 가져올 수 없어야 하는 **B(1.0)**도 가져올 수 있게 되버렸다. 만약 누가 실수로라도 **B(1.0)**을 사용을 했고, 누군가가 B(1.0)패키지를 포함하는 패키지가 더 이상 사용되지 않는다고 생각해서 제거했다면 소리없이 같이 사라져 버릴 것이다.&lt;/li&gt;
 &lt;/ul&gt;
@@ -56,7 +88,39 @@ berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://to
 &lt;ul&gt;
 &lt;li&gt;깊은 node_modules 디렉토리를 생성하지 않아도 된다. 또한 .yarn/cache에 zip파일로 있는 압축파일을 repo에 올려 같이 관리를 하면 추가 없이 바로 실행이 가능하다. 기존 node_modules와 같이 많은 파일과 용량이 컸다면 사용할 수 없었겠지만 PnP전략으로 인해 zero-install이 가능해 졌다. 기존 방식으로는 브랜치를 바꾸고 의존성 설치를 다시하고...이런 작업이 필요가 없다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;./zi.png&quot; alt=&quot;Zero Install&quot;&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/a0926f47d1d310e051ce5839073b24c8/a83dd/zi.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 61.48648648648649%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAACHElEQVR42lWS2VbbMBCGfduNpRBiS7KsfbFjOyQQKG1Pr6C9aOhN+/6P8vdoCBy4+DyLrF/SzFQuJOjpDnb9HW7zAypfIsaIVipwIcFEC9NZTOMMHxOs85jmNWLM6JSGcwH9sHqJq05bhDRAW48ibn2EdQHaOPgQ4Sn2MGXdB4SQ4HyEOayX/8paEVTaorJKYcoJVhv4EAhtLDqlaEPuexIqpxtjKQ4h0nqI5TBHfs4Z2hhUPkYopbEaR7rJsm5QNw24EOCc46Lh4PESzGRon9H3PZY1w+KixvnFkuxiWeN88eRXUkrITkJphVa2YJwTXHDwVsKYGrvtEXbbY9xeneLL9SlutsdvKPnb7QnZSoYBabqEc5Zu1jB2oIGQGuOK4d/+M/7+PsP+/j0eHz7g8edH/Cn8+oT9/TuK9w/vKa664QpxvUMr+BtB8rmA0hxTv8CQz5DCMXI4IfvMS+wLR6jU6hp5cwPvDIm8puEMstP4Ot9hGGZYn6ijxgZYFwmlHdEwCVYLVKrfoN/cwhqNmjGqX1MovhBopYRWCrLryH9NyZUOl/oXW3KVdAHD7htSimg7hbbrILWCMga8bSkX+xXdtAy6aDui+PowRik9dV92ClV5Wowe2+0G8zxhvZ4xzRP6oadOt9pATzcQrXgapQPlJfWh1i8lYgxV+aScSGg1rogimFKijUJKWKsxTiNSzsTzEBfB5rlEhzL9Bx91UapO6c7kAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;Zero Install&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/a0926f47d1d310e051ce5839073b24c8/fcda8/zi.png&quot;
+        srcset=&quot;/my-blog/static/a0926f47d1d310e051ce5839073b24c8/12f09/zi.png 148w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/e4a3f/zi.png 295w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/fcda8/zi.png 590w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/efc66/zi.png 885w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/c83ae/zi.png 1180w,
+/my-blog/static/a0926f47d1d310e051ce5839073b24c8/a83dd/zi.png 1482w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
 &lt;em&gt;yarn berry또한 .yarn/cache 디렉토리를 같이 repo에 올려 관리하고 있다.&lt;/em&gt;
 4. 엄격한 의존성 관리&lt;/p&gt;
 &lt;ul&gt;
@@ -72,7 +136,39 @@ berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://to
 &lt;ol&gt;
 &lt;li&gt;VSCode 익스텐션 ZipFs 설치(VSCode가 zip의존성을 읽을 수 있게 해준다)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;./zip.png&quot; alt=&quot;ZipFS&quot;&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/1db220041cd22c8624b08248b4b48699/78612/zip.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 29.72972972972973%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAABYlAAAWJQFJUiTwAAABdElEQVR42nWRvW7TUBiGcwtIrZo45ziOj5O4PnaPU9t1UodgpNDKkEL5mSok/qQuLIyVkKquCAk2boAbQGIuU8XCwMTYuZfQ8UE5SAxIDI/eb3r0vvpa0unQv7VEPz9BVXu4Tpu8KKjrmiRJiOOY6XRKWZZkeU45rSjKCWE4whiDUgopJa7r2mz1bx+Sfbpg8fkn8cdzNrKaelbRLA/YMobtLOfO3j7V7Ca7Zc79Rcn+vMCY1Ep7vR6O4yCEsNKW9/KMZ19+cfb1Byfnlzx8c0rku2wnm6TxJnroM9YjtpIYHYVM0hG5CSmKAq21ZbVklbZhe/6At98u+X51zcXVNR/ev8ObNJhHrwmqJePDY6J7r1CRIYk1wTDEVwOCILAMBn/u1XTbUHYdhovHZMen7Nx9wiBQ6PmS8cELollD2hxhmqekO7vEOrLTpBA2/8U2XFnFxjqdtRu019foCkFfdvFlB78n6YsOyu0SKB/P8/4+4H/8BpHbxOEkudK9AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;ZipFS&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/1db220041cd22c8624b08248b4b48699/fcda8/zip.png&quot;
+        srcset=&quot;/my-blog/static/1db220041cd22c8624b08248b4b48699/12f09/zip.png 148w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/e4a3f/zip.png 295w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/fcda8/zip.png 590w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/efc66/zip.png 885w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/c83ae/zip.png 1180w,
+/my-blog/static/1db220041cd22c8624b08248b4b48699/78612/zip.png 1260w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
 2. yarn set version berry
 3. 1로 인해 생성된 &lt;code&gt;.yarnrc.yml&lt;/code&gt;파일에 다음 내용을 추가한다.&lt;code&gt;nodeLinker: &quot;pnp&quot;&lt;/code&gt;
 4. yarn
@@ -164,15 +260,15 @@ concurrently는 여러 명령을 동시에 실행할 때 도움을 주는 패키
 &lt;p&gt;이를 확인하기 위해 간단한 스크립트를 작성해 보았다&lt;/p&gt;
 &lt;h2&gt;이미지가 담긴 요소의 swap&lt;/h2&gt;
 &lt;p&gt;사실, 단순히 img태그에서 이미지를 불러오게 하는 방식으로는 크게 차이가 없어보였다. 이는 알아서 이미지가 캐싱되었기 때문으로, 크롬 개발자 도구에서 캐싱을 잠시 끄고 테스트 해보았다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/my-blog/6657acc2e3237366bcca2bbb89932ae1/swap1.gif&quot; alt=&quot;img swap&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./swap1.gif&quot; alt=&quot;img swap&quot;&gt;&lt;/p&gt;
 &lt;p&gt;처음 2번의 swap은 insertBefore를 이용한 swap이고, 그 다음은 innerHTML을 통한 swap이다. 개발자도구나 화면을 보면 알 수 있듯이 innerHTML로 swap 했을 경우 캐싱을 안했다면 이미지를 다시 불러오는 것을 확인 할 수 있다.&lt;/p&gt;
 &lt;h2&gt;canvas가 담긴 요소의 swap&lt;/h2&gt;
 &lt;p&gt;이번에는 문제가 더욱 심각하다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/my-blog/7d2d6c03f9599a5897f3c5a30f5b21b7/swap2.gif&quot; alt=&quot;img swap2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;./swap2.gif&quot; alt=&quot;img swap2&quot;&gt;&lt;/p&gt;
 &lt;p&gt;마찬가지로 처음 2번의 swap은 insertBefore를 이용한 swap이고, 그 다음은 innerHTML을 통한 swap이다.
 화면을 보면 알 수 있듯이 innerHTML로 swap을 했더니 canvas로 그린 내용이 사라져 버린다! 위에서 언급했던대로 기존 내용을 &apos;완전히 삭제&apos;한 후 밑바닥부터 다시 쓰기 때문에 이런 현상이 발생한 것이다.&lt;/p&gt;
 &lt;h2&gt;결론&lt;/h2&gt;
-&lt;p&gt;innerHTML을 통해 바로 swap 하는건 편해보이지만 이러한 이유 및 XSS 취약한 등의 이유로 피하는 편이 좋다. 비록 지금은 웹페이지는 React로만 작성하고 있지만 기본을 아는것이 중요하다고 생각하기에 다시 정리해보았다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[서비스워커 사용해보기]]></title><description><![CDATA[서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드 서비스워커 코드 처음으로 서비스 워커가 있는 페이지에 들어와 설치 및 활성화 된 모습 dog 새로고침 하여 dog.svg에 대한 요청을 가로채 캐시에 있던 cat.svg를 받은 모습 cat…]]></description><link>https://read0more.github.io/blog/서비스워커-사용해보기/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커-사용해보기/</guid><pubDate>Sat, 11 Mar 2023 17:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드&lt;/h2&gt;
+&lt;p&gt;innerHTML을 통해 바로 swap 하는건 편해보이지만 이러한 이유 및 XSS 취약한 등의 이유로 피하는 편이 좋다. 비록 지금은 웹페이지는 React로만 작성하고 있지만 기본을 아는것이 중요하다고 생각하기에 다시 정리해보았다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[서비스워커 사용해보기]]></title><description><![CDATA[서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드 서비스워커 코드 처음으로 서비스 워커가 있는 페이지에 들어와 설치 및 활성화 된 모습  새로고침 하여 dog.svg에 대한 요청을 가로채 캐시에 있던 cat.svg를 받은 모습  fetch…]]></description><link>https://read0more.github.io/blog/서비스워커-사용해보기/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커-사용해보기/</guid><pubDate>Sat, 11 Mar 2023 17:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드&lt;/h2&gt;
 &lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;navigator.serviceWorker
     .register(&quot;/sw.js&quot;)
     .then((reg) =&gt; console.log(&quot;서비스워커 등록됨&quot;, reg))
@@ -222,11 +318,101 @@ self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
 });
 &lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;처음으로 서비스 워커가 있는 페이지에 들어와 설치 및 활성화 된 모습&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;./dog.png&quot; alt=&quot;dog&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/d22013767114e4fde593d39dccbc58d2/3fe45/dog.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 60.810810810810814%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAACG0lEQVR42qVR7W4SQRTdF2mB/f6c3Znd5cNiAWuJJg0aE620tbGwFqVNaqpC4lP4APyqvAoPwB8egacAjrlDaYq/TNzk5N659+yZc+cq8/kc0+kUo9EI9K1Wq/+C0mq1wDnHeDyWgovF4r4JrPBvwGPBu7vfmEwmmM1mUnC5XK6JRFguAMJqSY11fIz72pbDXz8H+Db4iG7nAtmHc2Tna3y66CLLviDLPqPT7aHb7a1j53LrnHUvcXt9jZt+H1+vrqBUay/BeQweCSRximJagmAh7NIBvLe3cN/cIGoPEBx/R/FsCP91H/xkiOj9D4TtIbxWD67HEPgMvs+g1BvPIeIiwihex1Ag4gl0w4TleNAMGyKtwGcCIqHI5ZnxFKEogsclcJ7Kf1goSPAZGo0DhCGHqurQNANqQZPC1ad17FVrSNIyTNOGZTmwbVdGhy7TdORyBeTz6gOUw8MmTk/P0G6foF5voFQqQ4gEhmHBcXxYtgvH9WE7HmzbkzXKqaYbFgqqLo1soFQqewiCEIWChp2dnCRQTo5ohIBF4CKFqhqyv7ubl6Cc3BF3y+H+fh0pLUIkYCySJLqJmpTrugnHDRAlVRkN04ZpOtIhjUw8Et1AKZef4OjoFd4dt1Gt1h4ENwTKaUERjxEnZfm2AS0mTmG7DPm/HdKbNZsvUKs15BhU3AhSLh16Phzfl0Is5PCDUMJjKTTdkkvcvOEfG+kHgmP3NRoAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;dog&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/d22013767114e4fde593d39dccbc58d2/fcda8/dog.png&quot;
+        srcset=&quot;/my-blog/static/d22013767114e4fde593d39dccbc58d2/12f09/dog.png 148w,
+/my-blog/static/d22013767114e4fde593d39dccbc58d2/e4a3f/dog.png 295w,
+/my-blog/static/d22013767114e4fde593d39dccbc58d2/fcda8/dog.png 590w,
+/my-blog/static/d22013767114e4fde593d39dccbc58d2/3fe45/dog.png 699w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;새로고침 하여 dog.svg에 대한 요청을 가로채 캐시에 있던 cat.svg를 받은 모습&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;./cat.png&quot; alt=&quot;cat&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/416ee/cat.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 74.32432432432432%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAPCAYAAADkmO9VAAAACXBIWXMAAAsTAAALEwEAmpwYAAACtElEQVR42q2S2U4aYRTHR30Fo2iHWdiGTRaZEXBANqPSNDZVMYClxjsfoW1SvWtasaAUC+2VkbfwFWriA3jjXtQYNZoYA8m/mWPlpjXxopP8cr7zn7PNd4bZ2vqJnZ0d3N3dodlsotFooKHZR2j+i0ajBfP23XssfFjA/3qY2o9VLBc/Y/njJxTzSyjk81gulPCl+JUorJRRoHOJ9JWVEqrlMiqlEr6vreHb6ioKS0so5vNkGVkOwOFwwO3ywOXsg6OvH/bkLGxjs5BGchDCEzDHpuF8Pgdrcg4W9QVskg1WyQ6RF6FnOXB6HmwvC54TwMTDUcj+EJSBIAbVCKLROEYTEcQTowgPxRAMqggEVURjwwiFIggEQ/AHVCI4OHTv+1XIyn0+43Z7YTCaIUk2mEwSPB4fvF4ZLpcXPt8AZNkPr9f3x8qELA/A4+mHogRIdzpdZLVcxmyWwHECDAYTBMEAvZ5Ht64XLKsnTafrRVeXDj09z8hqPGjd3T3Eg6admaAaoQ52uxNWq4O6ZmdykGUFPC9gYjKF6ekMUqk0JidTGB9/hZcvH2MCTDQWwaAaht1uB8dxSKczuLm5wcbGBhiGQa1Ww+XlJXZ3d3F0dITDw0Pi4OAA+/v72Nvbo3ea1XxmbGwY8eERKIoCSZKQy73B2dkZJbEsS3/A+fk5aVqR4+Nj1Ot18i8uLqj57e0trq+vKY5xub20EJvNAUEQkc2+piRtqvX1dZoykUggFotBFEX6ElmWSZuamsL8/DwWFxdRqVSwubkJxmSy0FJE0UiXmslkcXp6SuNfXV0hmUxS0afQ0dEBxmKx0naNRjNtKpOZwcnJCbG9vY3Ozs5WcFtbG9He3k5o2gOaToW1gjwvtgqm01nU679oumq1SkFa8lOn/KugNqFWULvDcrlMQa3uT+A3FemK8ChVDiwAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;cat&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/fcda8/cat.png&quot;
+        srcset=&quot;/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/12f09/cat.png 148w,
+/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/e4a3f/cat.png 295w,
+/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/fcda8/cat.png 590w,
+/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/efc66/cat.png 885w,
+/my-blog/static/d2cee9d911c1a3ae10e1d7d0ba6e4030/416ee/cat.png 930w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;fetch 프록시 확인&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;./fetch.png&quot; alt=&quot;fetch&quot;&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[서비스워커에 대하여]]></title><description><![CDATA[서비스 워커? 최근 테스트를 작성하면서 MSW(Mock Service Worker)를 이용하고 있는데, MSW가 서비스 워커를 이용하여 작성된 라이브러리이기 때문에 관심이 생겨서 알아보게 되었다. MDN…]]></description><link>https://read0more.github.io/blog/서비스워커에-대하여/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커에-대하여/</guid><pubDate>Sat, 11 Mar 2023 16:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스 워커?&lt;/h2&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 540px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/07484/fetch.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.08108108108108%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABKElEQVR42o2OzU7CQBRGeQlNTKSd6XQ6pC1YaJkCBfkrFRMFEhf+rJWVPgBPfwxFVibGxcl3b/Ldk9uYlg+kWU7U7hLFCfEx2wntTo+bJMXaIZPJHKMNgdYoqShGt0zGM2yWM5suyXq2diRJSiPrdZkXOUXWJdaC0HMIlUPku0RhhC1mJHZAXlVkszn9xZJ8WWKrisH6nulmiy1XOE0XKRWN7O2L+PWAeTnQfPzkYvXOZbXnar1HmA7S00jf4OoAoY9pcP2g3uvZtBBBCyk8xFGYb57p7j4Q0yea4x3NYsv1aIsz3uGZGOEIhPDqg1+4R+QJqU4fLoYRd2XJYjKisCmhL2riwMNX/kn2U/6Lc6/RSy39fEQYtZGeQvkaT2l0YFBK/1t4/vAbb023NVVMeRIAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;fetch&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/07484/fetch.png&quot;
+        srcset=&quot;/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/12f09/fetch.png 148w,
+/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/e4a3f/fetch.png 295w,
+/my-blog/static/b9f00e3e9d757efec9ff1666d8343d0e/07484/fetch.png 540w&quot;
+        sizes=&quot;(max-width: 540px) 100vw, 540px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[서비스워커에 대하여]]></title><description><![CDATA[서비스 워커? 최근 테스트를 작성하면서 MSW(Mock Service Worker)를 이용하고 있는데, MSW가 서비스 워커를 이용하여 작성된 라이브러리이기 때문에 관심이 생겨서 알아보게 되었다. MDN…]]></description><link>https://read0more.github.io/blog/서비스워커에-대하여/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커에-대하여/</guid><pubDate>Sat, 11 Mar 2023 16:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스 워커?&lt;/h2&gt;
 &lt;p&gt;최근 테스트를 작성하면서 MSW(Mock Service Worker)를 이용하고 있는데, MSW가 서비스 워커를 이용하여 작성된 라이브러리이기 때문에 관심이 생겨서 알아보게 되었다.&lt;/p&gt;
 &lt;p&gt;MDN의 서비스 워커 설명을 빌리자면 이렇다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -257,7 +443,37 @@ self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
 &lt;ul&gt;
 &lt;li&gt;에러가 났다면 chrome 개발자 도구 기준으로 Application-Service Workers에서 확인 가능하다.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&quot;./sw.png&quot; alt=&quot;개발자 도구에서의 Service Worker확인&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/d0cc0/sw.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 91.21621621621621%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAC30lEQVR42m1U7ZLaOBD0S9ymNiz425YlS7LkD/DCsrBwJLeXZJNU3v9VOjUD5tjU/ega12hozUy3CPp+hca1qHUDpQyM9cgLASEq5EUJ3w7QuoEx7nxuHLRpUGvLtXSmjUNdWzjXIdhud3h9/YKm8cjzEnlecGxcB9/2cL5HUVbIsuJyfkaS5AjD+IooSjgG6/UGX7+94fTpM5bLEW3XQ0oFVRvuwloPYxqUQkIIxV1KpfmSOE6RJNk7BObSLrEvFhEn4ySDEBJSatjGo1IWeZIjChOuWSxCrifCPxFsNlvsdi/Yvxx5N1RIpNMY9K10i8EvUVU1yrLi7vOsQBRNpMl/hM61+Pb2A5//+Ze7mkimcdK0QG0MumHkfZIQtFtlWsRxxvW3YMLD8QRrHWaz+ZWMDimWpYTShtdSVYovpVhJiywrkaZ0aX5F4JzHfn/A4fA3F08jT6qRokRGYpzJarZVkqTIspzVv0WgtcXj+gnPz3tWdCKk7opCsLq0M3exEflSKc01f5Ix4Tiu4Xx3tsaNFShSV5WsuSu2UW1YOFEpFEIizQse+Z3KZOiXlyOOx08Yxw3fMh3SNxmYRiUxjHUQhUAkKsxOB9w/jiwMqRxd9h70/RJdN/A4rPKlw0k18h2J0PUrHpe6o1w4j5DHMfI0RRjeqEzFh8OJO6SXQkmyyuR86jTPBRPR+GT2LC+RUa4sGVR/3aG1Dd6+/8SPn7/Qtv11VHrwtmkZ9JoI8ipGyTXpBe9EoTF92+Hp6Rm73QHDMLI4fthifH7FsD5B1Q2krPkt33ru/xAoLqz4B6vVGqtxc/6L0g2876/PjcA+FOpsbIJQEKVk89NldB7UjUc7PML3K5imhe+XcN2AxneorYPUFrK2EEqjJAvVhiOB8ta1aPsllLaojUOwjmLsRYVtKbBahFjOFxijGMMixDBfoH+Yo5s9oJ09wN1/5O/hJqfuPkDff4T86w7y7gN+AyrLGWJhe9jxAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;개발자 도구에서의 Service Worker확인&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/fcda8/sw.png&quot;
+        srcset=&quot;/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/12f09/sw.png 148w,
+/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/e4a3f/sw.png 295w,
+/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/fcda8/sw.png 590w,
+/my-blog/static/d0c60fb59bd09d1527a9779a6b3499d5/d0cc0/sw.png 732w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h3&gt;3. 설치된 새 서비스 워커의 활성화 조건&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;이전 서비스 워커가 제어하는 클라이언트(탭)이 없을 때 활성화 된다. 즉 모든 탭을 닫고 다시 들어가야 한다.&lt;/li&gt;
@@ -268,7 +484,37 @@ self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;&lt;img src=&quot;./sw2.png&quot; alt=&quot;개발자 도구에서의 Service Worker확인2(skipWating)&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/914ae/sw2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 58.10810810810811%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAAAsTAAALEwEAmpwYAAAB3klEQVR42nVT7W7bMAz0awwDYsvWh/VhW7LiOlvcZUG7rmiWZdj7v8sNZBsvHbAfBCWaPh7JU+F9j65PCCHChx5KaShtENOW4/0wInSR7+SHYeRY10f2MWaOkSes4vn5Bd53aFsLpQwnTXefsJ1mWBdgjGVvbYBpHcpSoKrq1fheijVenM8X7PcLUhoRAgE7OBcQwsBgTaO4UCM1n+ta/teEkCgIQIgGm81rBSk1tLHouggbRk6iOOUIUUO8nSuy6/mGcXE6nfH4+J2rX38mo4p9ysjbGS706GNm1ptSYPNvyytwg+LldObW6MMr7YZNKoM0JuTdHsdpwq9xwNO84Og7zLJGrVpIHke7siRfnH78xHS3ewdIlZihDzC+x2fb4qlVmLuEe+fx1UhI46CV4UVZ6zmfW16WA5bly9rytZrWLcugtR6udZhbg1xXyI2ApuU0ihnSf8OQ2BOpgi4h9OuWCFBryzKhmaW0RcoT/JAhGo2q0bxx+WYEFOOIlDLfi8PhCGJJWrzOj3XnArOjdqggScm4AGnsu1nzvKVmuRH4Ckgt3iYRfXo522nHYifxftzN+HC/R6U0RFmv0rnddnG5/MbDwzcG/Ks3ShTMcoiZnyDPmBZX1usCbglc7Q9zcGJVRxU6gAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;개발자 도구에서의 Service Worker확인2(skipWating)&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/fcda8/sw2.png&quot;
+        srcset=&quot;/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/12f09/sw2.png 148w,
+/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/e4a3f/sw2.png 295w,
+/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/fcda8/sw2.png 590w,
+/my-blog/static/06fa9fcbe6b0222d164c57870170d55b/914ae/sw2.png 860w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;다음은 실제로 코드를 작성하여 짧게 사용해보려 한다 &lt;a href=&quot;/my-blog/%EC%84%9C%EB%B9%84%EC%8A%A4%EC%9B%8C%EC%BB%A4-%EC%82%AC%EC%9A%A9%ED%95%B4%EB%B3%B4%EA%B8%B0&quot;&gt;서비스워커 사용해보기&lt;/a&gt;.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[짧은 vitest 사용후기]]></title><description><![CDATA[Vitest? 공식 사이트의 말을 빌리자면... Vite-native unit test framework 짧게 써보고 느낀점 1. 설정이 편하다 Vite-native라는 말을 쓴 것 답게 vite config파일 안에 설정한 alias…]]></description><link>https://read0more.github.io/blog/짧은-vitest-사용후기/</link><guid isPermaLink="false">https://read0more.github.io/blog/짧은-vitest-사용후기/</guid><pubDate>Sun, 26 Feb 2023 10:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;Vitest?&lt;/h2&gt;
 &lt;p&gt;공식 사이트의 말을 빌리자면...&lt;/p&gt;
 &lt;blockquote&gt;
@@ -307,7 +553,38 @@ export default defineConfig({
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;위의 설정 파일에서 test property가 vitest에 대해 설정한 전부다.&lt;/p&gt;
 &lt;h2&gt;VSC 익스텐션을 사용한 모습&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;./vsc.png&quot; alt=&quot;VSC vitest extension&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/my-blog/static/b6d625e953f884553e55314bc6233fea/3dde1/vsc.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.43243243243243%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsTAAALEwEAmpwYAAABGElEQVR42oXM0U6DMACFYd5D2jEolEJZS+ks2xhGExf1/d/nN5KpiTdefDk55+Jkc5o5ny+klEhpJsa4ORw8qlF412O7Fm16zODpekvXDwx2YPKOg3PotqXRGlXXZG4cua4ry3IlhAmtW+pGY5qGqdcsR881RtbjkckFomlJumGsKnxZMpYlYb8nFAXDriCrW006zazrE4+PaTt1zlNWitcQeHeOVbe89B0vXcezMax1zakomKVkUiXnaAm9IvQ1mbeW2+3G29sHl8tCCJFxnNCtQeY58uEB8ce25zk7IRAiR+53iJ3cZKMPnE4L8Ziw1mGMZRg8zo0IKf+3nf7KqkpRltVGqfrHV5dSIoVAiu+8+97vh1u/+wRtj7EeV7vuJgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;VSC vitest extension&quot;
+        title=&quot;&quot;
+        src=&quot;/my-blog/static/b6d625e953f884553e55314bc6233fea/fcda8/vsc.png&quot;
+        srcset=&quot;/my-blog/static/b6d625e953f884553e55314bc6233fea/12f09/vsc.png 148w,
+/my-blog/static/b6d625e953f884553e55314bc6233fea/e4a3f/vsc.png 295w,
+/my-blog/static/b6d625e953f884553e55314bc6233fea/fcda8/vsc.png 590w,
+/my-blog/static/b6d625e953f884553e55314bc6233fea/efc66/vsc.png 885w,
+/my-blog/static/b6d625e953f884553e55314bc6233fea/3dde1/vsc.png 1018w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+        decoding=&quot;async&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
 &lt;h2&gt;결론&lt;/h2&gt;
 &lt;p&gt;react 프로젝트를 시작할 때 vite를 애용하고 있는데, 앞으로는 vitest도 같이 애용하게 될 것 같다. 또한 공식 사이트의 말을 다시 한 번 더 빌리자면&lt;/p&gt;
 &lt;blockquote&gt;
