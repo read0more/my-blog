@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Mar 2023 10:38:33 GMT</lastBuildDate><item><title><![CDATA[Yarn Berry PnP구성]]></title><description><![CDATA[Yarn Berry? yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 25 Mar 2023 11:53:04 GMT</lastBuildDate><item><title><![CDATA[Yarn Berry PnP구성]]></title><description><![CDATA[Yarn Berry? yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
 berry는 npm…]]></description><link>https://read0more.github.io/blog/yarn-berry/</link><guid isPermaLink="false">https://read0more.github.io/blog/yarn-berry/</guid><pubDate>Sat, 25 Mar 2023 19:05:19 GMT</pubDate><content:encoded>&lt;h2&gt;Yarn Berry?&lt;/h2&gt;
 &lt;p&gt;yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
 berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://toss.tech/article/node-modules-and-yarn-berry&quot;&gt;토스 기술 블로그&lt;/a&gt;에 굉장히 잘 정리되어 있는데, 본 글은 링크의 글을 보고 알게 된 것을 정리한 글이다.&lt;/p&gt;
@@ -168,11 +168,13 @@ berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://to
         decoding=&quot;async&quot;
       /&gt;
   &lt;/a&gt;
-    &lt;/span&gt;
-2. yarn set version berry
-3. 1로 인해 생성된 &lt;code&gt;.yarnrc.yml&lt;/code&gt;파일에 다음 내용을 추가한다.&lt;code&gt;nodeLinker: &quot;pnp&quot;&lt;/code&gt;
-4. yarn
-5. yarn dlx @yarnpkg/sdks vscode&lt;/p&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;ol start=&quot;2&quot;&gt;
+&lt;li&gt;yarn set version berry&lt;/li&gt;
+&lt;li&gt;1로 인해 생성된 &lt;code&gt;.yarnrc.yml&lt;/code&gt;파일에 다음 내용을 추가한다.&lt;code&gt;nodeLinker: &quot;pnp&quot;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;yarn&lt;/li&gt;
+&lt;li&gt;yarn dlx @yarnpkg/sdks vscode&lt;/li&gt;
+&lt;/ol&gt;
 &lt;ul&gt;
 &lt;li&gt;IDE에서 TS + PnP를 사용하기위해 필요하다.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://yarnpkg.com/getting-started/editor-sdks&quot;&gt;공식문서 참고&lt;/a&gt;&lt;/li&gt;
@@ -186,9 +188,24 @@ berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://to
 &lt;ol start=&quot;7&quot;&gt;
 &lt;li&gt;&lt;code&gt;cmd&lt;/code&gt;+&lt;code&gt;shift&lt;/code&gt;+&lt;code&gt;p&lt;/code&gt; -&gt; Typescript: Select Typescript Version... -&gt; Use Workspace Version 선택&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h2&gt;만약 lint-staged를 사용할경우 필요한 작업&lt;/h2&gt;
+&lt;p&gt;그냥 npx mrm lint-staged로 하면 꽤 간편하게 설정이 됐었지만 아무래도 berry에선 안되는 모양이므로 다음과 같은 방식으로 해결하였다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;yarn add -D husky&lt;/li&gt;
+&lt;li&gt;yarn husky install&lt;/li&gt;
+&lt;li&gt;yarn add -D lint-staged&lt;/li&gt;
+&lt;li&gt;.husky에 pre-commit파일 생성&lt;/li&gt;
+&lt;li&gt;yarn husky add .husky/pre-commit&lt;/li&gt;
+&lt;li&gt;pre-commit파일을 열어 다음과 같은 내용을 추가&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;#!/usr/bin/env sh
+. &quot;$(dirname -- &quot;$0&quot;)/_/husky.sh&quot;
+
+yarn lint-staged
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h2&gt;실제로 사용해본 결과&lt;/h2&gt;
-&lt;p&gt;기존에 tRPC 사용해볼 용도의 간단한 내용의 모노레포 프로젝트가 있었는데 tRPC 버전을 올릴겸 yarn berry를 적용해 보았더니 다음과 같이 개선 되었다.
-&lt;code&gt;308MB, 파일 22373개&lt;/code&gt; -&gt; &lt;code&gt;146MB, 파일776개&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;기존에 tRPC 사용해볼 용도의 간단한 내용의 모노레포 프로젝트가 있었는데 tRPC 버전을 올릴겸 yarn berry를 적용해 보았더니 다음과 같이 개선 되었다.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;308MB, 파일 22373개&lt;/code&gt; → &lt;code&gt;146MB, 파일776개&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;용량도 용량이지만 파일 개수가 어마어마하게 줄었다. 가벼운 프로젝트에서도 이 정도의 개선이 이루어질 정도라면 IDE의 파일 인덱싱 부담이 상당히 줄어드는 부수효과도 얻을 수 있을 것으로 보인다.&lt;/p&gt;
 &lt;p&gt;주의할 점으로는 패키지가 PnP를 지원하지 않는다거나, 버전을 올려야 하는 경우이다. 버전업의 경우 메이저 버전이 바뀌어야 한다면 꽤 큰 공사가 될 수도 있으니 마냥 좋다고 바꾸기는 어려워 보인다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[모노레포에 대해]]></title><description><![CDATA[모노레포? Monolithic Repositories. 즉 두 개 이상의 프로젝트가 동일한 repository에 구성 된 것을 말한다. 장점 귀찮게 IDE를 스위칭 해가면서 볼 필요가 없다 공통되는 코드 및 설정(prettier, eslint…]]></description><link>https://read0more.github.io/blog/workspaces를-통한-모노레포-생성/</link><guid isPermaLink="false">https://read0more.github.io/blog/workspaces를-통한-모노레포-생성/</guid><pubDate>Sun, 19 Mar 2023 17:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;모노레포?&lt;/h2&gt;
 &lt;p&gt;Monolithic Repositories. 즉 두 개 이상의 프로젝트가 동일한 repository에 구성 된 것을 말한다.&lt;/p&gt;

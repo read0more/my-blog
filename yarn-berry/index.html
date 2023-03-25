@@ -169,11 +169,13 @@ berry는 npm의 각종 문제점을 개선해준다. <a href="https://toss.tech/
         decoding="async"
       />
   </a>
-    </span>
-2. yarn set version berry
-3. 1로 인해 생성된 <code>.yarnrc.yml</code>파일에 다음 내용을 추가한다.<code>nodeLinker: "pnp"</code>
-4. yarn
-5. yarn dlx @yarnpkg/sdks vscode</p>
+    </span></p>
+<ol start="2">
+<li>yarn set version berry</li>
+<li>1로 인해 생성된 <code>.yarnrc.yml</code>파일에 다음 내용을 추가한다.<code>nodeLinker: "pnp"</code></li>
+<li>yarn</li>
+<li>yarn dlx @yarnpkg/sdks vscode</li>
+</ol>
 <ul>
 <li>IDE에서 TS + PnP를 사용하기위해 필요하다.</li>
 <li><a href="https://yarnpkg.com/getting-started/editor-sdks">공식문서 참고</a></li>
@@ -187,9 +189,24 @@ berry는 npm의 각종 문제점을 개선해준다. <a href="https://toss.tech/
 <ol start="7">
 <li><code>cmd</code>+<code>shift</code>+<code>p</code> -> Typescript: Select Typescript Version... -> Use Workspace Version 선택</li>
 </ol>
+<h2>만약 lint-staged를 사용할경우 필요한 작업</h2>
+<p>그냥 npx mrm lint-staged로 하면 꽤 간편하게 설정이 됐었지만 아무래도 berry에선 안되는 모양이므로 다음과 같은 방식으로 해결하였다.</p>
+<ol>
+<li>yarn add -D husky</li>
+<li>yarn husky install</li>
+<li>yarn add -D lint-staged</li>
+<li>.husky에 pre-commit파일 생성</li>
+<li>yarn husky add .husky/pre-commit</li>
+<li>pre-commit파일을 열어 다음과 같은 내용을 추가</li>
+</ol>
+<pre><code class="language-sh">#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn lint-staged
+</code></pre>
 <h2>실제로 사용해본 결과</h2>
-<p>기존에 tRPC 사용해볼 용도의 간단한 내용의 모노레포 프로젝트가 있었는데 tRPC 버전을 올릴겸 yarn berry를 적용해 보았더니 다음과 같이 개선 되었다.
-<code>308MB, 파일 22373개</code> -> <code>146MB, 파일776개</code></p>
+<p>기존에 tRPC 사용해볼 용도의 간단한 내용의 모노레포 프로젝트가 있었는데 tRPC 버전을 올릴겸 yarn berry를 적용해 보았더니 다음과 같이 개선 되었다.</p>
+<p><code>308MB, 파일 22373개</code> → <code>146MB, 파일776개</code></p>
 <p>용량도 용량이지만 파일 개수가 어마어마하게 줄었다. 가벼운 프로젝트에서도 이 정도의 개선이 이루어질 정도라면 IDE의 파일 인덱싱 부담이 상당히 줄어드는 부수효과도 얻을 수 있을 것으로 보인다.</p>
 <p>주의할 점으로는 패키지가 PnP를 지원하지 않는다거나, 버전을 올려야 하는 경우이다. 버전업의 경우 메이저 버전이 바뀌어야 한다면 꽤 큰 공사가 될 수도 있으니 마냥 좋다고 바꾸기는 어려워 보인다.</p></section><hr/><footer><div class="bio"><p><strong>같이 일하고 싶은 개발자를 목표로 하는 프론트엔드 개발자입니다.</strong><p>사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.</p></p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/my-blog/workspaces를-통한-모노레포-생성/">← <!-- -->모노레포에 대해</a></li><li></li></ul></nav></main><footer>© <!-- -->2023<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/yarn-berry/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
