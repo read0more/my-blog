@@ -38,6 +38,7 @@ node_module를 생성하지 않고, ```.yarn/cache``` 디렉토리에 의존성�
 - 깊은 node_modules 디렉토리를 생성하지 않아도 된다. 또한 .yarn/cache에 zip파일로 있는 압축파일을 repo에 올려 같이 관리를 하면 추가 없이 바로 실행이 가능하다. 기존 node_modules와 같이 많은 파일과 용량이 컸다면 사용할 수 없었겠지만 PnP전략으로 인해 zero-install이 가능해 졌다. 기존 방식으로는 브랜치를 바꾸고 의존성 설치를 다시하고...이런 작업이 필요가 없다.
 ![Zero Install](./zi.png)
 *yarn berry또한 .yarn/cache 디렉토리를 같이 repo에 올려 관리하고 있다.*
+
 4. 엄격한 의존성 관리
 - node_modules와 같은 호이스팅을 하지 않아 유령 의존성이 일어나지 않는다.
 5. 의존성 검증
@@ -47,6 +48,7 @@ node_module를 생성하지 않고, ```.yarn/cache``` 디렉토리에 의존성�
 ## PnP 적용법(TS + VSCode)
 1. VSCode 익스텐션 ZipFs 설치(VSCode가 zip의존성을 읽을 수 있게 해준다)
 ![ZipFS](./zip.png)
+
 2. yarn set version berry
 3. 1로 인해 생성된 ```.yarnrc.yml```파일에 다음 내용을 추가한다.```nodeLinker: "pnp"```
 4. yarn
@@ -57,9 +59,25 @@ node_module를 생성하지 않고, ```.yarn/cache``` 디렉토리에 의존성�
 - 자체적으로 타입을 포함하지 않는 패키지를 추가할 때 @types/패키지를 자동으로 추가해주는 편리한 플러그인이다.
 7. ```cmd```+```shift```+```p``` -> Typescript: Select Typescript Version... -> Use Workspace Version 선택
 
+## 만약 lint-staged를 사용할경우 필요한 작업
+그냥 npx mrm lint-staged로 하면 꽤 간편하게 설정이 됐었지만 아무래도 berry에선 안되는 모양이므로 다음과 같은 방식으로 해결하였다.
+1. yarn add -D husky
+2. yarn husky install
+3. yarn add -D lint-staged
+4. .husky에 pre-commit파일 생성
+5. yarn husky add .husky/pre-commit
+6. pre-commit파일을 열어 다음과 같은 내용을 추가
+```sh
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn lint-staged
+```
+
 ## 실제로 사용해본 결과
 기존에 tRPC 사용해볼 용도의 간단한 내용의 모노레포 프로젝트가 있었는데 tRPC 버전을 올릴겸 yarn berry를 적용해 보았더니 다음과 같이 개선 되었다. 
-```308MB, 파일 22373개``` -> ```146MB, 파일776개```
+
+```308MB, 파일 22373개``` → ```146MB, 파일776개```
 
 용량도 용량이지만 파일 개수가 어마어마하게 줄었다. 가벼운 프로젝트에서도 이 정도의 개선이 이루어질 정도라면 IDE의 파일 인덱싱 부담이 상당히 줄어드는 부수효과도 얻을 수 있을 것으로 보인다.
 
