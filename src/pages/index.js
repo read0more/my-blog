@@ -1,4 +1,4 @@
-import * as React from "react"
+import React, { useState, useEffect } from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
@@ -7,10 +7,10 @@ import Seo from "../components/seo"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const [posts, setPosts] = React.useState(data.allMarkdownRemark.nodes)
+  const [posts, setPosts] = useState(data.allMarkdownRemark.nodes)
   const searchParams = new URLSearchParams(location.search)
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (searchParams.has("date")) {
       const date = searchParams.get("date")
       const filteredPosts = data.allMarkdownRemark.nodes.filter(post => {
@@ -22,7 +22,7 @@ const BlogIndex = ({ data, location }) => {
       })
       setPosts(filteredPosts)
     }
-  }, [searchParams])
+  }, [searchParams, data.allMarkdownRemark.nodes])
 
   const postCountByDate = data.allMarkdownRemark.nodes.reduce((acc, post) => {
     const date = new Date(post.frontmatter.date)
@@ -45,11 +45,7 @@ const BlogIndex = ({ data, location }) => {
   }
 
   return (
-    <Layout
-      location={location}
-      title={siteTitle}
-      postCountByDate={postCountByDate}
-    >
+    <Layout location={location} title={siteTitle}>
       <Bio />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <ol style={{ listStyle: `none` }}>
