@@ -2,6 +2,7 @@
 title: 모노레포에 대해
 date: "2023-03-19T17:32:19.896Z"
 description: "workspaces 설정을 통한 모노레포 생성"
+category: "JS"
 ---
 
 ## 모노레포?

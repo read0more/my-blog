@@ -2,6 +2,7 @@
 title: Yarn Berry PnP구성
 date: "2023-03-25T19:05:19.896Z"
 description: "Yarn Berry의 PnP전략이 나온 이유와 PnP 적용법"
+category: "JS"
 ---
 
 ## Yarn Berry?

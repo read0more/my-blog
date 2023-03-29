@@ -1,45 +1,50 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useMemo } from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
+import Aside from "../components/aside"
+import Category from "../components/category"
 
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
-  const [posts, setPosts] = useState(data.allMarkdownRemark.nodes)
-  const searchParams = new URLSearchParams(location.search)
+  const fullData = data.allMarkdownRemark.nodes
+  const [posts, setPosts] = useState(fullData)
+  const searchParams = useMemo(
+    () => new URLSearchParams(location.search),
+    [location.search]
+  )
 
   useEffect(() => {
+    let filteredPosts = fullData
     if (searchParams.has("date")) {
       const date = searchParams.get("date")
-      const filteredPosts = data.allMarkdownRemark.nodes.filter(post => {
+      filteredPosts = filteredPosts.filter(post => {
         const postDate = new Date(post.frontmatter.date)
         return (
           postDate.getFullYear() === parseInt(date.split("-")[0]) &&
           postDate.getMonth() + 1 === parseInt(date.split("-")[1])
         )
       })
-      setPosts(filteredPosts)
     }
-  }, [searchParams, data.allMarkdownRemark.nodes])
 
-  const postCountByDate = data.allMarkdownRemark.nodes.reduce((acc, post) => {
-    const date = new Date(post.frontmatter.date)
-    const key = `${date.getFullYear()}-${`0${date.getMonth() + 1}`.slice(-2)}`
-    acc[key] = (acc[key] || 0) + 1
-    return acc
-  }, {})
+    if (searchParams.has("category")) {
+      const category = searchParams.get("category")
+      filteredPosts = filteredPosts.filter(post => {
+        return post.frontmatter.category === category
+      })
+    }
+
+    setPosts(filteredPosts)
+  }, [searchParams, data.allMarkdownRemark.nodes])
 
   if (posts.length === 0) {
     return (
       <Layout location={location} title={siteTitle}>
         <Bio />
-        <p>
-          No blog posts found. Add markdown posts to "content/blog" (or the
-          directory you specified for the "gatsby-source-filesystem" plugin in
-          gatsby-config.js).
-        </p>
+        <Category location={location} />
+        <p>해당하는 글이 없습니다.</p>
       </Layout>
     )
   }
@@ -47,6 +52,7 @@ const BlogIndex = ({ data, location }) => {
   return (
     <Layout location={location} title={siteTitle}>
       <Bio />
+      <Category location={location} />
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <ol style={{ listStyle: `none` }}>
           {posts.map(post => {
@@ -80,17 +86,7 @@ const BlogIndex = ({ data, location }) => {
             )
           })}
         </ol>
-        <aside>
-          <ul>
-            {Object.entries(postCountByDate).map(([date, count]) => (
-              <li key={date} style={{ cursor: "pointer" }}>
-                <Link to={`/?date=${date}`}>
-                  {date} ({count})
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </aside>
+        <Aside location={location} posts={posts} />
       </div>
     </Layout>
   )
@@ -122,6 +118,7 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          category
         }
       }
     }

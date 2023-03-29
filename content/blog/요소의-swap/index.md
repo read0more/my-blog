@@ -2,6 +2,7 @@
 title: DOM 요소의 swap
 date: "2023-03-13T21:32:19.896Z"
 description: "Element 위치를 변경할 때 innerHTML을 지양해야 하는 이유"
+category: "JS"
 ---
 
 이미 시간이 꽤 지났지만 바닐라JS로 토이프로젝트를 하던 도중 경험한 일이다.

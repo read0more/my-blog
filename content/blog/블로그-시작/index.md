@@ -2,6 +2,7 @@
 title: 블로그 시작
 date: "2023-02-26T09:32:19.896Z"
 description: "일단은 뭐라도 남겨보자"
+category: "etc"
 ---
 
 ## 뭐라도 남겨보자

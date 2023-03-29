@@ -2,6 +2,7 @@
 title: 짧은 vitest 사용후기
 date: "2023-02-26T10:32:19.896Z"
 description: "짧은 vitest 사용후기"
+category: "JS"
 ---
 
 ## Vitest?
