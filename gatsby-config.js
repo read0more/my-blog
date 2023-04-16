@@ -13,9 +13,9 @@ module.exports = {
     title: `read0more's blog`,
     author: {
       name: `read0more`,
-      summary: `같이 일하고 싶은 개발자를 목표로 하는 프론트엔드 개발자입니다.`,
+      summary: ``,
     },
-    description: `사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.`,
+    description: `사용했던 기술들을 정리하는 일기장 같은 공간입니다.`,
     siteUrl: `https://read0more.github.io/blog/`,
     social: {
       twitter: `kylemathews`,
