@@ -1,4 +1,35 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 29 Mar 2023 06:32:43 GMT</lastBuildDate><item><title><![CDATA[Yarn Berry PnP구성]]></title><description><![CDATA[Yarn Berry? yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하고, 새로운 기술들을 공부하고, 공부한 내용을 정리하는 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 16 Apr 2023 03:32:11 GMT</lastBuildDate><item><title><![CDATA[yarnPnP 환경에서 prisma-client 사용하기]]></title><description><![CDATA[PnP에서 문제가 생기는 부분 prisma-client의 경우 node_module안에 생성을 해주는데, PnP환경에서는 없기 때문에 문제가 된다. 해결 방법 PnP를 지원하지 않는 패키지에 대한 호환성 문제를 해결 하기위해 yarn엔 pnpify…]]></description><link>https://read0more.github.io/blog/yarnPnP에서-prisma-사용하기/</link><guid isPermaLink="false">https://read0more.github.io/blog/yarnPnP에서-prisma-사용하기/</guid><pubDate>Sun, 16 Apr 2023 12:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;PnP에서 문제가 생기는 부분&lt;/h2&gt;
+&lt;p&gt;prisma-client의 경우 node_module안에 생성을 해주는데, PnP환경에서는 없기 때문에 문제가 된다.&lt;/p&gt;
+&lt;h2&gt;해결 방법&lt;/h2&gt;
+&lt;p&gt;PnP를 지원하지 않는 패키지에 대한 호환성 문제를 해결 하기위해 yarn엔 pnpify라는 도구가 존재한다. 이를 통해 해결한다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;yarn add @yarnpkg/pnpify&lt;/li&gt;
+&lt;li&gt;schema.prisma의 generator client 안에 다음과 같이 client를 출력할 경로를 추가한다.(아래의 예시처럼 한다면 /prisma에 추가됨)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code&gt;generator client {
+  provider = &quot;prisma-client-js&quot;
+  output   = &quot;./&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;3&quot;&gt;
+&lt;li&gt;prisma-client import 편의성을 위해 package.json에 위에서 추가한 경로를 link로 추가해 준다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+...
+	&quot;dependencies&quot;: {
+		...
+		&quot;prisma-client&quot;: &quot;link:./prisma&quot;,
+		...
+	}
+...
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;ol start=&quot;4&quot;&gt;
+&lt;li&gt;yarn pnpify prisma db push, yarn pnpify prisma generate와 같이 pnpify를 붙여 명령어를 실행한다. studio 실행 시는 따로 안해도 괜찮다.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo%EB%A5%BC&quot;&gt;https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo를&lt;/a&gt; 참고해서 next.config.js에 webpack관련 설정을 추가한다. monorepo가 아니라도 yarn PnP를 쓸 때 next에서 해당 플러그인을 사용하지 않으면 에러가 발생한다(현재 13.2.4 기준)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;결론&lt;/h2&gt;
+&lt;p&gt;PnP가 no install에 디스크 공간도 적게 차지하는 등의 매력적인 환경임에는 틀림 없지만, 이런 문제들로 인해 아직은 실무에서 적용하기에는 적지 않은 비용이 들 것임을 또 한번 느꼈다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Yarn Berry PnP구성]]></title><description><![CDATA[Yarn Berry? yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
 berry는 npm…]]></description><link>https://read0more.github.io/blog/yarn-berry/</link><guid isPermaLink="false">https://read0more.github.io/blog/yarn-berry/</guid><pubDate>Sat, 25 Mar 2023 19:05:19 GMT</pubDate><content:encoded>&lt;h2&gt;Yarn Berry?&lt;/h2&gt;
 &lt;p&gt;yarn V2의 명칭이며 현재 V1은 1.22.19를 마지막으로 관리가 중단된 상태이다.
 berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://toss.tech/article/node-modules-and-yarn-berry&quot;&gt;토스 기술 블로그&lt;/a&gt;에 굉장히 잘 정리되어 있는데, 본 글은 링크의 글을 보고 알게 된 것을 정리한 글이다.&lt;/p&gt;
