@@ -1,5 +1,5 @@
 ---
-title: 
+title: node환경에서 jest사용을 피하는 이유
 date: "2023-04-27T21:28:19.896Z"
 description: "jest의 구현 방식인 node:vm으로 인한 문제"
 category: "testing"
