@@ -32,4 +32,7 @@ settings: {
 module resolution의 node 방식에 대한 자세한 설명은 [여기](https://www.typescriptlang.org/docs/handbook/module-resolution.html#how-nodejs-resolves-modules)에서 보는 것이 더 빠르다.
 
 # 기타
-아무래도 tsconfig의 paths를 통한 alias도 해당 설정을 해주면 eslint 에서 오류가 발생하였다. 하지만 어차피 Yarn 2+를 사용하는 이상 link 프로토콜을 쓰는게 여러모로 편하니(alias를 jest, tsconfig, storybook에 전부 따로따로 설정해야 한다던가의 이유로) 이 부분은 크게 신경쓰지 않아도 될 것으로 보인다.
+아무래도 tsconfig의 paths를 통한 alias도 해당 설정을 해주면 eslint 에서 오류가 발생하였다. 하지만 어차피 Yarn 2+를 사용하는 이상 link 프로토콜을 쓰는게 여러모로 편하니(alias를 jest, tsconfig, storybook에 전부 따로따로 설정해야 한다던가의 이유로) ~~이 부분은 크게 신경쓰지 않아도 될 것으로 보인다~~.
+
+vitest의 경우 link 프로토콜 사용 시 package.json을 프로젝트 루트에서 찾지 않는다.
+예를들어 `"src": "link:./src"`와 같이 했다면 src에서 package.json을 찾으려 시도를 하여 에러가 발생한다. 해결을 위해서 어쩔 수 없이 vitest.config에 alias를 추가해야한다.
