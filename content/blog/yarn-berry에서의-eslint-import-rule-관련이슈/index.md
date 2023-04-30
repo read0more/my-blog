@@ -7,12 +7,12 @@ category: "JS"
 
 # 발단
 프로젝트 스캐폴딩용으로 github에 생성한 템플릿 repo에서 vitest관련 import에서 다음과 같은 에러가 발생했다.
-```
-  1:1  error  Resolve error: synckit tried to access ", but it isn't declared in its dependencies; this makes the require call ambiguous and unsound.
+
+1:1  error  Resolve error: synckit tried to access ", but it isn't declared in its dependencies; this makes the require call ambiguous and unsound.
 
 Required package: " (via ""/var/folders/1s/2hvl19cn5p1bnb1x26th1m9m0000gn/T/473e5d87de9575172344d889c511233f.cjs"")
 Required by: synckit@npm:0.8.5 (via /Users/yk/Documents/project/my-next-template/.yarn/cache/synckit-npm-0.8.5-40a594eb38-8a9560e5d8.zip/node_modules/synckit/lib/)
-```
+
 
 원인이 되는 부분은 해당 import ```import { defineConfig } from 'vitest/config';``` 였다.
 vitest/config에서 가져오지 않고 vite에서 가져와도 별 상관은 없지만 어째서 PnP 환경에서만 발생하는지 찾아보았다.
