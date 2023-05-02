@@ -14,7 +14,8 @@
 <p>먼저 <code>npm i -D vitest-mock-extended</code>로 vitest-mock-extended를 설치한다. jest환경에서는 <code>jest-mock-extended</code>를 설치하면 되지만 <a href="/my-blog/%08node%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-jest%EC%82%AC%EC%9A%A9%EC%9D%84-%ED%94%BC%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0/">이전 글</a>에서 설명한 이유로 jest환경에서 prisma를 테스트 하는 것은 추천하지 않는다.</p>
 <h2>mocking 방법</h2>
 <p>먼저, prisma-client의 객체를 export하는 모듈을 작성한다.</p>
-<pre><code class="language-js">import { PrismaClient } from '@prisma/client';
+<deckgo-highlight-code language="js"  >
+          <code slot="code">import { PrismaClient } from &#39;@prisma/client&#39;;
 
 const globalForPrisma = global as unknown as {
   prisma: PrismaClient | undefined;
@@ -23,43 +24,46 @@ const globalForPrisma = global as unknown as {
 const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
-    log: ['query'],
+    log: [&#39;query&#39;],
   });
 
-if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== &#39;production&#39;) globalForPrisma.prisma = prisma;
 
-export default prisma;
-</code></pre>
+export default prisma;</code>
+        </deckgo-highlight-code>
 <p>해당 모듈에 <strong>mocks</strong> 디렉토리를 생성하고, 위에서 생성한 모듈과 같은 이름을 가진 파일을 생성하여 다음 예시와 같은 prisma client에 대한 mock을 작성한다. 이 글은 prisma mocking에 대한 내용이므로 자세한 내용은 생략하겠으나, 왜 이렇게 작성하는지에 알고 싶다면 vitest의 <a href="https://vitest.dev/guide/mocking.html#automocking-algorithm">Automocking algorithm</a>을 참고하길 바란다.</p>
-<pre><code class="language-js">import { PrismaClient } from '@prisma/client';
-import { beforeEach } from 'vitest';
-import { mockDeep, mockReset } from 'vitest-mock-extended';
+<deckgo-highlight-code language="js"  >
+          <code slot="code">import { PrismaClient } from &#39;@prisma/client&#39;;
+import { beforeEach } from &#39;vitest&#39;;
+import { mockDeep, mockReset } from &#39;vitest-mock-extended&#39;;
 
-beforeEach(() => {
+beforeEach(() =&gt; {
   mockReset(prisma);
 });
 
-const prisma = mockDeep&#x3C;PrismaClient>();
-export default prisma;
-</code></pre>
+const prisma = mockDeep&lt;PrismaClient&gt;();
+export default prisma;</code>
+        </deckgo-highlight-code>
 <h2>테스트</h2>
 <p>User라는 모델이 있고, User의 create에 대해 mocking한다고 가정하면 다음과 같이 mocking할 수 있다.</p>
-<pre><code class="language-js">import prisma from '../__mocks__/prismaClient'; // 위에서 작성한 mock
-vi.mock('../prismaClient'); // 위에서 작성한 prisma client 객체를 export하는 모듈
+<deckgo-highlight-code language="js"  >
+          <code slot="code">import prisma from &#39;../__mocks__/prismaClient&#39;; // 위에서 작성한 mock
+vi.mock(&#39;../prismaClient&#39;); // 위에서 작성한 prisma client 객체를 export하는 모듈
 
-test('registration should return the generated user without password', async () => {
+test(&#39;registration should return the generated user without password&#39;, async () =&gt; {
   prisma.user.create.mockResolvedValue(dummyNewUser); // user create시에 dummyNewUser를 return하게 변경
-});
-</code></pre>
+});</code>
+        </deckgo-highlight-code>
 <p>이로 인해 해당 테스트 내에서 prisma에서 user를 create 할 때는 무조건 dummyNewUser를 결과로 주게 된다. 또한, mock module에서</p>
-<pre><code class="language-js">beforeEach(() => {
+<deckgo-highlight-code language="js"  >
+          <code slot="code">beforeEach(() =&gt; {
   mockReset(prisma);
-});
-</code></pre>
+});</code>
+        </deckgo-highlight-code>
 <p>다음 코드로 각 테스트마다 reset하기 때문에 mock이 리턴하는 값은 각 테스트 별로 독립적임을 보장한다.</p></section><hr/><footer><div class="bio"><p><strong></strong><span> <!-- -->사용했던 기술들을 정리하는 일기장 같은 공간입니다.</span></p></div></footer></article><nav class="blog-post-nav"><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/my-blog/node환경에서-jest사용을-피하는-이유/">← <!-- -->node환경에서 jest사용을 피하는 이유</a></li><li></li></ul></nav></main><footer>© <!-- -->2023<!-- -->, Built with<!-- --> <a href="https://www.gatsbyjs.com">Gatsby</a></footer></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/prisma를-mocking해보자/";/*]]>*/</script><!-- slice-start id="_gatsby-scripts-1" -->
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"app\":[\"/app-ebb74765fb0c1db79988.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-9f65097b0cfddb2d0374.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-f9991d91e78b4ee3e22c.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-faac9389515fd2b786a9.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-df9bbf4b8222df042f37.js\"]}";
+            window.___chunkMapping="{\"app\":[\"/app-d9fa1a0987cd19b2b86b.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-f63ebe80d576481c21f4.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-a7c33124a064852c2aac.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-93336aba7f8118f1a501.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-229c8da04b9effb36e2b.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="fe62c270e40778b22352";</script><script src="/my-blog/webpack-runtime-89cad372e19673b77c8c.js" async></script><script src="/my-blog/framework-0ff3ad83d0d20e5cd061.js" async></script><script src="/my-blog/app-ebb74765fb0c1db79988.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="824214a6979ccc9cc152";</script><script src="/my-blog/webpack-runtime-575e05e2ff0f67ca80fa.js" async></script><script src="/my-blog/framework-0ff3ad83d0d20e5cd061.js" async></script><script src="/my-blog/app-d9fa1a0987cd19b2b86b.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

@@ -10,24 +10,25 @@
 <h2>그래서, 그게 뭐가 문제인데?</h2>
 <p>node:vm은 각자의 컨텍스트를 가졌고, global 객체인 Array, Error와 같은 객체도 가졌다. 그리고 해당 컨텍스트 내에서 Jest는 mock등의 기능을 제공하기 위해 overwrite한다. 그런데, Node.js의 core module에서는 이 overwrite된 객체를 사용 하지않고 기본 구현을 따른다. 이로 인해 객체를 비교할 때 문제가 생긴다.</p>
 <h2>문제 샘플코드</h2>
-<pre><code class="language-js">const { readFileSync } = require('fs');
+<deckgo-highlight-code language="js"  >
+          <code slot="code">const { readFileSync } = require(&#39;fs&#39;);
 
-it('error가 일치하여 테스트 통과', () => {
+it(&#39;error가 일치하여 테스트 통과&#39;, () =&gt; {
     try {
-      throw new Error('test');
+      throw new Error(&#39;test&#39;);
     } catch (error) {
       expect(error).toBeInstanceOf(Error)
     }
   })
 
-  it('error instance가 일치하지 않아 테스트 실패', () => {
+  it(&#39;error instance가 일치하지 않아 테스트 실패&#39;, () =&gt; {
     try {
-      readFileSync('not-exist');
+      readFileSync(&#39;not-exist&#39;);
     } catch (error) {
       expect(error).toBeInstanceOf(Error)
     }
-  })
-</code></pre>
+  })</code>
+        </deckgo-highlight-code>
 <p>위에서 설명했던 문제가 여기서 발생한다. node의 fs core module의 readFileSync를 통해 없는 파일을 읽게 하는 시도를 하게하여 Error를 던지게 하였지만 테스트에서는 두 개의 객체가 같지 않아 에러가 나버린다. 즉, <code>instanceof</code>의 정상적인 작동을 기대할 수 없다는 뜻이다. 이는 현재 2023/04/27일 기준 최신 버전인 v29.5.0에서도 발생한다.</p>
 <p>이런 이유로 Node.js의 기술 결정 위원회(TSC, Technical Steering Committee)의 멤버인 Matteo Collina도 Node.js 앱에서 jest를 <a href="https://twitter.com/matteocollina/status/1600058525916360704">사용하지 않는다</a>는 트윗을 남긴 적이 있다.</p>
 <h2>대체제</h2>
@@ -40,6 +41,6 @@ it('error가 일치하여 테스트 통과', () => {
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"app\":[\"/app-ebb74765fb0c1db79988.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-9f65097b0cfddb2d0374.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-f9991d91e78b4ee3e22c.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-faac9389515fd2b786a9.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-df9bbf4b8222df042f37.js\"]}";
+            window.___chunkMapping="{\"app\":[\"/app-d9fa1a0987cd19b2b86b.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-f63ebe80d576481c21f4.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-a7c33124a064852c2aac.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-93336aba7f8118f1a501.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-229c8da04b9effb36e2b.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="fe62c270e40778b22352";</script><script src="/my-blog/webpack-runtime-89cad372e19673b77c8c.js" async></script><script src="/my-blog/framework-0ff3ad83d0d20e5cd061.js" async></script><script src="/my-blog/app-ebb74765fb0c1db79988.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="824214a6979ccc9cc152";</script><script src="/my-blog/webpack-runtime-575e05e2ff0f67ca80fa.js" async></script><script src="/my-blog/framework-0ff3ad83d0d20e5cd061.js" async></script><script src="/my-blog/app-d9fa1a0987cd19b2b86b.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

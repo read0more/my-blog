@@ -14,10 +14,11 @@ vitest/config에서 가져오지 않고 vite에서 가져와도 별 상관은 �
 </ul>
 <h1>해결방법</h1>
 <p>위의 예상 원인으로 module resolution이 문제가 아닐까 했고, 해결 방법 자체는 간단하다. eslint 설정 파일에 다음 내용을 추가하면 된다.</p>
-<pre><code>settings: {
-    'import/resolver': 'node',
-  },
-</code></pre>
+<deckgo-highlight-code   >
+          <code slot="code">settings: {
+    &#39;import/resolver&#39;: &#39;node&#39;,
+  },</code>
+        </deckgo-highlight-code>
 <p>module resolution의 node 방식에 대한 자세한 설명은 <a href="https://www.typescriptlang.org/docs/handbook/module-resolution.html#how-nodejs-resolves-modules">여기</a>에서 보는 것이 더 빠르다.</p>
 <h1>기타</h1>
 <p>아무래도 tsconfig의 paths를 통한 alias도 해당 설정을 해주면 eslint 에서 오류가 발생하였다. 하지만 어차피 Yarn 2+를 사용하는 이상 link 프로토콜을 쓰는게 여러모로 편하니(alias를 jest, tsconfig, storybook에 전부 따로따로 설정해야 한다던가의 이유로) <del>이 부분은 크게 신경쓰지 않아도 될 것으로 보인다</del>.</p>
@@ -26,6 +27,6 @@ vitest/config에서 가져오지 않고 vite에서 가져와도 별 상관은 �
           <script
             id="gatsby-chunk-mapping"
           >
-            window.___chunkMapping="{\"app\":[\"/app-ebb74765fb0c1db79988.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-9f65097b0cfddb2d0374.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-f9991d91e78b4ee3e22c.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-faac9389515fd2b786a9.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-df9bbf4b8222df042f37.js\"]}";
+            window.___chunkMapping="{\"app\":[\"/app-d9fa1a0987cd19b2b86b.js\"],\"component---src-pages-404-js\":[\"/component---src-pages-404-js-f63ebe80d576481c21f4.js\"],\"component---src-pages-index-js\":[\"/component---src-pages-index-js-a7c33124a064852c2aac.js\"],\"component---src-pages-using-typescript-tsx\":[\"/component---src-pages-using-typescript-tsx-93336aba7f8118f1a501.js\"],\"component---src-templates-blog-post-js\":[\"/component---src-templates-blog-post-js-229c8da04b9effb36e2b.js\"]}";
           </script>
-        <script>window.___webpackCompilationHash="fe62c270e40778b22352";</script><script src="/my-blog/webpack-runtime-89cad372e19673b77c8c.js" async></script><script src="/my-blog/framework-0ff3ad83d0d20e5cd061.js" async></script><script src="/my-blog/app-ebb74765fb0c1db79988.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>
+        <script>window.___webpackCompilationHash="824214a6979ccc9cc152";</script><script src="/my-blog/webpack-runtime-575e05e2ff0f67ca80fa.js" async></script><script src="/my-blog/framework-0ff3ad83d0d20e5cd061.js" async></script><script src="/my-blog/app-d9fa1a0987cd19b2b86b.js" async></script><!-- slice-end id="_gatsby-scripts-1" --></body></html>

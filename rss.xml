@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하는 일기장 같은 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 30 Apr 2023 06:42:01 GMT</lastBuildDate><item><title><![CDATA[prisma를 mocking해보자]]></title><description><![CDATA[들어가기 전에 이 글은 prisma blog의 The Ultimate Guide to Testing with Prisma part1에서 prisma를 mocking 하는 방법에 대해서만 정리한 글이다. 링크의 글은 mock이 무엇인지, 왜 vitest…]]></description><link>https://read0more.github.io/blog/prisma를-mocking해보자/</link><guid isPermaLink="false">https://read0more.github.io/blog/prisma를-mocking해보자/</guid><pubDate>Fri, 28 Apr 2023 12:30:19 GMT</pubDate><content:encoded>&lt;h2&gt;들어가기 전에&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하는 일기장 같은 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 02 May 2023 03:18:18 GMT</lastBuildDate><item><title><![CDATA[prisma를 mocking해보자]]></title><description><![CDATA[들어가기 전에 이 글은 prisma blog의 The Ultimate Guide to Testing with Prisma part1에서 prisma를 mocking 하는 방법에 대해서만 정리한 글이다. 링크의 글은 mock이 무엇인지, 왜 vitest…]]></description><link>https://read0more.github.io/blog/prisma를-mocking해보자/</link><guid isPermaLink="false">https://read0more.github.io/blog/prisma를-mocking해보자/</guid><pubDate>Fri, 28 Apr 2023 12:30:19 GMT</pubDate><content:encoded>&lt;h2&gt;들어가기 전에&lt;/h2&gt;
 &lt;p&gt;이 글은 prisma blog의 &lt;a href=&quot;https://www.prisma.io/blog/testing-series-1-8eRB5p0Y8o&quot;&gt;The Ultimate Guide to Testing with Prisma part1&lt;/a&gt;에서 prisma를 mocking 하는 방법에 대해서만 정리한 글이다. 링크의 글은 mock이 무엇인지, 왜 vitest를 선택했는지 등의 내용들이 있으니 한 번쯤 읽어보는 것을 추천한다.&lt;/p&gt;
 &lt;h2&gt;prisma를 mocking해야 하는 이유&lt;/h2&gt;
 &lt;p&gt;먼저 언급해두자면, mocking하지 않아도 테스트 자체는 돌아가기는 한다. 하지만 다음과 같은 문제점이 있다.&lt;/p&gt;
@@ -12,7 +12,8 @@
 &lt;p&gt;먼저 &lt;code&gt;npm i -D vitest-mock-extended&lt;/code&gt;로 vitest-mock-extended를 설치한다. jest환경에서는 &lt;code&gt;jest-mock-extended&lt;/code&gt;를 설치하면 되지만 &lt;a href=&quot;/my-blog/%08node%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-jest%EC%82%AC%EC%9A%A9%EC%9D%84-%ED%94%BC%ED%95%98%EB%8A%94-%EC%9D%B4%EC%9C%A0/&quot;&gt;이전 글&lt;/a&gt;에서 설명한 이유로 jest환경에서 prisma를 테스트 하는 것은 추천하지 않는다.&lt;/p&gt;
 &lt;h2&gt;mocking 방법&lt;/h2&gt;
 &lt;p&gt;먼저, prisma-client의 객체를 export하는 모듈을 작성한다.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;import { PrismaClient } from &apos;@prisma/client&apos;;
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;import { PrismaClient } from &amp;#39;@prisma/client&amp;#39;;
 
 const globalForPrisma = global as unknown as {
   prisma: PrismaClient | undefined;
@@ -21,39 +22,42 @@ const globalForPrisma = global as unknown as {
 const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
-    log: [&apos;query&apos;],
+    log: [&amp;#39;query&amp;#39;],
   });
 
-if (process.env.NODE_ENV !== &apos;production&apos;) globalForPrisma.prisma = prisma;
+if (process.env.NODE_ENV !== &amp;#39;production&amp;#39;) globalForPrisma.prisma = prisma;
 
-export default prisma;
-&lt;/code&gt;&lt;/pre&gt;
+export default prisma;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;해당 모듈에 &lt;strong&gt;mocks&lt;/strong&gt; 디렉토리를 생성하고, 위에서 생성한 모듈과 같은 이름을 가진 파일을 생성하여 다음 예시와 같은 prisma client에 대한 mock을 작성한다. 이 글은 prisma mocking에 대한 내용이므로 자세한 내용은 생략하겠으나, 왜 이렇게 작성하는지에 알고 싶다면 vitest의 &lt;a href=&quot;https://vitest.dev/guide/mocking.html#automocking-algorithm&quot;&gt;Automocking algorithm&lt;/a&gt;을 참고하길 바란다.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;import { PrismaClient } from &apos;@prisma/client&apos;;
-import { beforeEach } from &apos;vitest&apos;;
-import { mockDeep, mockReset } from &apos;vitest-mock-extended&apos;;
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;import { PrismaClient } from &amp;#39;@prisma/client&amp;#39;;
+import { beforeEach } from &amp;#39;vitest&amp;#39;;
+import { mockDeep, mockReset } from &amp;#39;vitest-mock-extended&amp;#39;;
 
-beforeEach(() =&gt; {
+beforeEach(() =&amp;gt; {
   mockReset(prisma);
 });
 
-const prisma = mockDeep&amp;#x3C;PrismaClient&gt;();
-export default prisma;
-&lt;/code&gt;&lt;/pre&gt;
+const prisma = mockDeep&amp;lt;PrismaClient&amp;gt;();
+export default prisma;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;h2&gt;테스트&lt;/h2&gt;
 &lt;p&gt;User라는 모델이 있고, User의 create에 대해 mocking한다고 가정하면 다음과 같이 mocking할 수 있다.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;import prisma from &apos;../__mocks__/prismaClient&apos;; // 위에서 작성한 mock
-vi.mock(&apos;../prismaClient&apos;); // 위에서 작성한 prisma client 객체를 export하는 모듈
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;import prisma from &amp;#39;../__mocks__/prismaClient&amp;#39;; // 위에서 작성한 mock
+vi.mock(&amp;#39;../prismaClient&amp;#39;); // 위에서 작성한 prisma client 객체를 export하는 모듈
 
-test(&apos;registration should return the generated user without password&apos;, async () =&gt; {
+test(&amp;#39;registration should return the generated user without password&amp;#39;, async () =&amp;gt; {
   prisma.user.create.mockResolvedValue(dummyNewUser); // user create시에 dummyNewUser를 return하게 변경
-});
-&lt;/code&gt;&lt;/pre&gt;
+});&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이로 인해 해당 테스트 내에서 prisma에서 user를 create 할 때는 무조건 dummyNewUser를 결과로 주게 된다. 또한, mock module에서&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;beforeEach(() =&gt; {
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;beforeEach(() =&amp;gt; {
   mockReset(prisma);
-});
-&lt;/code&gt;&lt;/pre&gt;
+});&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;다음 코드로 각 테스트마다 reset하기 때문에 mock이 리턴하는 값은 각 테스트 별로 독립적임을 보장한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[node환경에서 jest사용을 피하는 이유]]></title><description><![CDATA[jest의 병렬처리 방식 무엇이 문제인지 알려면 jest의 병렬처리 방식에 대해 알아야 할 필요가 있다. isolated - Tests are parallelized by running them in their own processes to…]]></description><link>https://read0more.github.io/blog/node환경에서-jest사용을-피하는-이유/</link><guid isPermaLink="false">https://read0more.github.io/blog/node환경에서-jest사용을-피하는-이유/</guid><pubDate>Thu, 27 Apr 2023 21:28:19 GMT</pubDate><content:encoded>&lt;h2&gt;jest의 병렬처리 방식&lt;/h2&gt;
 &lt;p&gt;무엇이 문제인지 알려면 jest의 병렬처리 방식에 대해 알아야 할 필요가 있다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -64,24 +68,25 @@ test(&apos;registration should return the generated user without password&apos;,
 &lt;h2&gt;그래서, 그게 뭐가 문제인데?&lt;/h2&gt;
 &lt;p&gt;node:vm은 각자의 컨텍스트를 가졌고, global 객체인 Array, Error와 같은 객체도 가졌다. 그리고 해당 컨텍스트 내에서 Jest는 mock등의 기능을 제공하기 위해 overwrite한다. 그런데, Node.js의 core module에서는 이 overwrite된 객체를 사용 하지않고 기본 구현을 따른다. 이로 인해 객체를 비교할 때 문제가 생긴다.&lt;/p&gt;
 &lt;h2&gt;문제 샘플코드&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const { readFileSync } = require(&apos;fs&apos;);
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const { readFileSync } = require(&amp;#39;fs&amp;#39;);
 
-it(&apos;error가 일치하여 테스트 통과&apos;, () =&gt; {
+it(&amp;#39;error가 일치하여 테스트 통과&amp;#39;, () =&amp;gt; {
     try {
-      throw new Error(&apos;test&apos;);
+      throw new Error(&amp;#39;test&amp;#39;);
     } catch (error) {
       expect(error).toBeInstanceOf(Error)
     }
   })
 
-  it(&apos;error instance가 일치하지 않아 테스트 실패&apos;, () =&gt; {
+  it(&amp;#39;error instance가 일치하지 않아 테스트 실패&amp;#39;, () =&amp;gt; {
     try {
-      readFileSync(&apos;not-exist&apos;);
+      readFileSync(&amp;#39;not-exist&amp;#39;);
     } catch (error) {
       expect(error).toBeInstanceOf(Error)
     }
-  })
-&lt;/code&gt;&lt;/pre&gt;
+  })&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;위에서 설명했던 문제가 여기서 발생한다. node의 fs core module의 readFileSync를 통해 없는 파일을 읽게 하는 시도를 하게하여 Error를 던지게 하였지만 테스트에서는 두 개의 객체가 같지 않아 에러가 나버린다. 즉, &lt;code&gt;instanceof&lt;/code&gt;의 정상적인 작동을 기대할 수 없다는 뜻이다. 이는 현재 2023/04/27일 기준 최신 버전인 v29.5.0에서도 발생한다.&lt;/p&gt;
 &lt;p&gt;이런 이유로 Node.js의 기술 결정 위원회(TSC, Technical Steering Committee)의 멤버인 Matteo Collina도 Node.js 앱에서 jest를 &lt;a href=&quot;https://twitter.com/matteocollina/status/1600058525916360704&quot;&gt;사용하지 않는다&lt;/a&gt;는 트윗을 남긴 적이 있다.&lt;/p&gt;
 &lt;h2&gt;대체제&lt;/h2&gt;
@@ -104,10 +109,11 @@ vitest/config에서 가져오지 않고 vite에서 가져와도 별 상관은 �
 &lt;/ul&gt;
 &lt;h1&gt;해결방법&lt;/h1&gt;
 &lt;p&gt;위의 예상 원인으로 module resolution이 문제가 아닐까 했고, 해결 방법 자체는 간단하다. eslint 설정 파일에 다음 내용을 추가하면 된다.&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;settings: {
-    &apos;import/resolver&apos;: &apos;node&apos;,
-  },
-&lt;/code&gt;&lt;/pre&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;settings: {
+    &amp;#39;import/resolver&amp;#39;: &amp;#39;node&amp;#39;,
+  },&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;module resolution의 node 방식에 대한 자세한 설명은 &lt;a href=&quot;https://www.typescriptlang.org/docs/handbook/module-resolution.html#how-nodejs-resolves-modules&quot;&gt;여기&lt;/a&gt;에서 보는 것이 더 빠르다.&lt;/p&gt;
 &lt;h1&gt;기타&lt;/h1&gt;
 &lt;p&gt;아무래도 tsconfig의 paths를 통한 alias도 해당 설정을 해주면 eslint 에서 오류가 발생하였다. 하지만 어차피 Yarn 2+를 사용하는 이상 link 프로토콜을 쓰는게 여러모로 편하니(alias를 jest, tsconfig, storybook에 전부 따로따로 설정해야 한다던가의 이유로) &lt;del&gt;이 부분은 크게 신경쓰지 않아도 될 것으로 보인다&lt;/del&gt;.&lt;/p&gt;
@@ -120,24 +126,26 @@ vitest/config에서 가져오지 않고 vite에서 가져와도 별 상관은 �
 &lt;li&gt;yarn add @yarnpkg/pnpify&lt;/li&gt;
 &lt;li&gt;schema.prisma의 generator client 안에 다음과 같이 client를 출력할 경로를 추가한다.(아래의 예시처럼 한다면 /prisma에 추가됨)&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code&gt;generator client {
-  provider = &quot;prisma-client-js&quot;
-  output   = &quot;./&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;generator client {
+  provider = &amp;quot;prisma-client-js&amp;quot;
+  output   = &amp;quot;./&amp;quot;
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;ol start=&quot;3&quot;&gt;
 &lt;li&gt;prisma-client import 편의성을 위해 package.json에 위에서 추가한 경로를 link로 추가해 준다.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;{
 ...
-	&quot;dependencies&quot;: {
+	&amp;quot;dependencies&amp;quot;: {
 		...
-		&quot;prisma-client&quot;: &quot;link:./prisma&quot;,
+		&amp;quot;prisma-client&amp;quot;: &amp;quot;link:./prisma&amp;quot;,
 		...
 	}
 ...
-}
-&lt;/code&gt;&lt;/pre&gt;
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;ol start=&quot;4&quot;&gt;
 &lt;li&gt;yarn pnpify prisma db push, yarn pnpify prisma generate와 같이 pnpify를 붙여 명령어를 실행한다. studio 실행 시는 따로 안해도 괜찮다.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo%EB%A5%BC&quot;&gt;https://www.prisma.io/docs/guides/database/troubleshooting-orm/help-articles/nextjs-prisma-client-monorepo를&lt;/a&gt; 참고해서 next.config.js에 webpack관련 설정을 추가한다. monorepo가 아니라도 yarn PnP를 쓸 때 next에서 해당 플러그인을 사용하지 않으면 에러가 발생한다(현재 13.2.4 기준)&lt;/li&gt;
@@ -345,11 +353,12 @@ berry는 npm의 각종 문제점을 개선해준다. &lt;a href=&quot;https://to
 &lt;li&gt;yarn husky add .husky/pre-commit&lt;/li&gt;
 &lt;li&gt;pre-commit파일을 열어 다음과 같은 내용을 추가&lt;/li&gt;
 &lt;/ol&gt;
-&lt;pre&gt;&lt;code class=&quot;language-sh&quot;&gt;#!/usr/bin/env sh
-. &quot;$(dirname -- &quot;$0&quot;)/_/husky.sh&quot;
+&lt;deckgo-highlight-code language=&quot;sh&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;#!/usr/bin/env sh
+. &amp;quot;$(dirname -- &amp;quot;$0&amp;quot;)/_/husky.sh&amp;quot;
 
-yarn lint-staged
-&lt;/code&gt;&lt;/pre&gt;
+yarn lint-staged&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;h2&gt;실제로 사용해본 결과&lt;/h2&gt;
 &lt;p&gt;기존에 tRPC 사용해볼 용도의 간단한 내용의 모노레포 프로젝트가 있었는데 tRPC 버전을 올릴겸 yarn berry를 적용해 보았더니 다음과 같이 개선 되었다.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;308MB, 파일 22373개&lt;/code&gt; → &lt;code&gt;146MB, 파일776개&lt;/code&gt;&lt;/p&gt;
@@ -370,39 +379,44 @@ yarn lint-staged
 &lt;li&gt;파일이 많아지니 속도가 느려진다. IDE, Git, 빌드 시 등...실제로 이러한 문제로 Uber의 경우는 다시 멀티레포로 돌아가기도 했다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;특정 패키지를 지정할 때&lt;/h2&gt;
-&lt;pre&gt;&lt;code&gt;npm --w {각 패키지의 package.json의 name 값}
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;npm --w {각 패키지의 package.json의 name 값}
 or
-yarn workspace {각 패키지의 package.json의 name 값}
-&lt;/code&gt;&lt;/pre&gt;
+yarn workspace {각 패키지의 package.json의 name 값}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;예를들어 server 패키지에 express를 추가하고 싶다면&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm i express --w server
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;npm i express --w server
 or
-yarn workspace server add express
-&lt;/code&gt;&lt;/pre&gt;
+yarn workspace server add express&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;h2&gt;package.json 예시&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;{
-  &quot;name&quot;: &quot;root&quot;,
-  &quot;private&quot;: true,
-  &quot;workspaces&quot;: [
-    &quot;packages/*&quot;
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;root&amp;quot;,
+  &amp;quot;private&amp;quot;: true,
+  &amp;quot;workspaces&amp;quot;: [
+    &amp;quot;packages/*&amp;quot;
   ],
-  &quot;scripts&quot;: {
-    &quot;dev&quot;: &quot;concurrently \&quot;wsrun --parallel dev\&quot;&quot;
+  &amp;quot;scripts&amp;quot;: {
+    &amp;quot;dev&amp;quot;: &amp;quot;concurrently \&amp;quot;wsrun --parallel dev\&amp;quot;&amp;quot;
   },
-  &quot;devDependencies&quot;: {
-    &quot;concurrently&quot;: &quot;^7.6.0&quot;,
-    &quot;wsrun&quot;: &quot;^5.2.4&quot;
+  &amp;quot;devDependencies&amp;quot;: {
+    &amp;quot;concurrently&amp;quot;: &amp;quot;^7.6.0&amp;quot;,
+    &amp;quot;wsrun&amp;quot;: &amp;quot;^5.2.4&amp;quot;
   }
-}
-&lt;/code&gt;&lt;/pre&gt;
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;workspaces에
 concurrently는 여러 명령을 동시에 실행할 때 도움을 주는 패키지이다. monorepo에 관한 글이기 때문에 왜 사용하는지에 대해서는 &lt;a href=&quot;https://github.com/open-cli-tools/concurrently#why&quot;&gt;링크&lt;/a&gt;만 남기고 생략한다.&lt;/p&gt;
 &lt;p&gt;wsrun은 각 패키지에 있는 script를 한번에 실행시키려고 추가하였다. 예를 들어 package가 server, client 두 개가 있다면&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&quot;dev&quot;: &quot;concurrently \&quot;yarn workspace server dev\&quot; \&quot;yarn workspace client dev\&quot;&quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;&amp;quot;dev&amp;quot;: &amp;quot;concurrently \&amp;quot;yarn workspace server dev\&amp;quot; \&amp;quot;yarn workspace client dev\&amp;quot;&amp;quot;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이건&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;&quot;dev&quot;: &quot;concurrently \&quot;wsrun --parallel dev\&quot;&quot;
-&lt;/code&gt;&lt;/pre&gt;
+&lt;deckgo-highlight-code   &gt;
+          &lt;code slot=&quot;code&quot;&gt;&amp;quot;dev&amp;quot;: &amp;quot;concurrently \&amp;quot;wsrun --parallel dev\&amp;quot;&amp;quot;&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;이거랑 똑같다.&lt;/p&gt;
 &lt;h2&gt;결론&lt;/h2&gt;
 &lt;p&gt;Cient와 Backend가 같은 언어로 동작하고, 프로젝트의 사이즈가 너무 크지 않을 때 편할 것으로 보인다. 특히 tRPC를 사용해 보면서 정말 편하다고 느꼈다.
@@ -413,10 +427,11 @@ concurrently는 여러 명령을 동시에 실행할 때 도움을 주는 패키
 &lt;p&gt;아! 그냥 innerHTML이용해서 바꾸면 쉽겠네!&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;같은 생각을 하였다. 그래서 처음 엔 다음과 같은 코드를 작성 하였다.&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;function swap(nodeA, nodeB) {
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;function swap(nodeA, nodeB) {
   [nodeA.innerHTML, nodeB.innerHTML] = [nodeB.innerHTML, nodeA.innerHTML];
-}
-&lt;/code&gt;&lt;/pre&gt;
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;하지만 이 방법은 전혀 먹히질 않았고 조사해보다 원인을 알게 되었다. 모던 JavaScript 튜토리얼 사이트(&lt;a href=&quot;https://ko.javascript.info/basic-dom-node-properties#ref-2284)%EC%9D%98&quot;&gt;https://ko.javascript.info/basic-dom-node-properties#ref-2284)의&lt;/a&gt; 내용을 인용하여 이유를 말하자면 이렇다.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;strong&gt;기존 내용을 &apos;완전히 삭제’한 후 밑바닥부터 다시 쓰기 때문에 이미지나 리소스 전부가 다시 불러와 집니다.&lt;/strong&gt;&lt;/p&gt;
@@ -433,54 +448,56 @@ concurrently는 여러 명령을 동시에 실행할 때 도움을 주는 패키
 화면을 보면 알 수 있듯이 innerHTML로 swap을 했더니 canvas로 그린 내용이 사라져 버린다! 위에서 언급했던대로 기존 내용을 &apos;완전히 삭제&apos;한 후 밑바닥부터 다시 쓰기 때문에 이런 현상이 발생한 것이다.&lt;/p&gt;
 &lt;h2&gt;결론&lt;/h2&gt;
 &lt;p&gt;innerHTML을 통해 바로 swap 하는건 편해보이지만 이러한 이유 및 XSS 취약한 등의 이유로 피하는 편이 좋다. 비록 지금은 웹페이지는 React로만 작성하고 있지만 기본을 아는것이 중요하다고 생각하기에 다시 정리해보았다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[서비스워커 사용해보기]]></title><description><![CDATA[서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드 서비스워커 코드 처음으로 서비스 워커가 있는 페이지에 들어와 설치 및 활성화 된 모습  새로고침 하여 dog.svg에 대한 요청을 가로채 캐시에 있던 cat.svg를 받은 모습  fetch…]]></description><link>https://read0more.github.io/blog/서비스워커-사용해보기/</link><guid isPermaLink="false">https://read0more.github.io/blog/서비스워커-사용해보기/</guid><pubDate>Sat, 11 Mar 2023 17:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;서비스워커 등록 코드 및 동작 확인 위한 img태그 삽입 코드&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;navigator.serviceWorker
-    .register(&quot;/sw.js&quot;)
-    .then((reg) =&gt; console.log(&quot;서비스워커 등록됨&quot;, reg))
-    .catch((err) =&gt; console.log(&quot;서비스워커 등록실패&quot;, err));
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;navigator.serviceWorker
+    .register(&amp;quot;/sw.js&amp;quot;)
+    .then((reg) =&amp;gt; console.log(&amp;quot;서비스워커 등록됨&amp;quot;, reg))
+    .catch((err) =&amp;gt; console.log(&amp;quot;서비스워커 등록실패&amp;quot;, err));
 
   // 이미지 캐싱 확인을 위한 코드
-  setTimeout(() =&gt; {
+  setTimeout(() =&amp;gt; {
     const img = new Image();
-    img.src = &quot;/dog.svg&quot;;
-    img.style=&quot;width: 100px; height: 100px;&quot;;
+    img.src = &amp;quot;/dog.svg&amp;quot;;
+    img.style=&amp;quot;width: 100px; height: 100px;&amp;quot;;
     document.body.appendChild(img);
   }, 1000);
 
   // 요청을 가로채고 응답하는 것을 보기 위한 fetch
-  fetch(&quot;http://localhost:3000/api&quot;)
-    .then((res) =&gt; res.json())
-    .then((data) =&gt; console.log(data));
-&lt;/code&gt;&lt;/pre&gt;
+  fetch(&amp;quot;http://localhost:3000/api&amp;quot;)
+    .then((res) =&amp;gt; res.json())
+    .then((data) =&amp;gt; console.log(data));&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;h2&gt;서비스워커 코드&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;const image = &quot;/cat.svg&quot;;
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const image = &amp;quot;/cat.svg&amp;quot;;
 
-self.addEventListener(&quot;install&quot;, (event) =&gt; {
-  console.log(&quot;V1 installing…&quot;);
+self.addEventListener(&amp;quot;install&amp;quot;, (event) =&amp;gt; {
+  console.log(&amp;quot;V1 installing…&amp;quot;);
 
   // cat.svg를 캐싱
   event.waitUntil(
-    caches.open(&quot;static-v1&quot;).then((cache) =&gt; cache.add(image))
+    caches.open(&amp;quot;static-v1&amp;quot;).then((cache) =&amp;gt; cache.add(image))
   );
 });
 
-self.addEventListener(&quot;activate&quot;, (event) =&gt; {
-  console.log(&quot;V1 now ready to handle fetches!&quot;);
+self.addEventListener(&amp;quot;activate&amp;quot;, (event) =&amp;gt; {
+  console.log(&amp;quot;V1 now ready to handle fetches!&amp;quot;);
 });
 
-self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
+self.addEventListener(&amp;quot;fetch&amp;quot;, (event) =&amp;gt; {
   const url = new URL(event.request.url);
 
   // 같은 origin이고 dog.svg를 요청했다면 캐시에 있는 이미지(cat.svg)를 넘겨준다
-  if (url.origin == location.origin &amp;#x26;&amp;#x26; url.pathname == &quot;/dog.svg&quot;) {
+  if (url.origin == location.origin &amp;amp;&amp;amp; url.pathname == &amp;quot;/dog.svg&amp;quot;) {
     event.respondWith(caches.match(image));
   }
 
   // 현재 서버에 저런 경로가 없던간에 CORS문제가 있는 경로던 간에 서비스워커가 가로채면 상관없다
-  if (url.pathname === &apos;/api&apos;) {
-    event.respondWith(new Response(JSON.stringify({ data: &apos;CORS가 났더라도 가로채기 때문에 상관없음&apos; })));
+  if (url.pathname === &amp;#39;/api&amp;#39;) {
+    event.respondWith(new Response(JSON.stringify({ data: &amp;#39;CORS가 났더라도 가로채기 때문에 상관없음&amp;#39; })));
   }
-});
-&lt;/code&gt;&lt;/pre&gt;
+});&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;h2&gt;처음으로 서비스 워커가 있는 페이지에 들어와 설치 및 활성화 된 모습&lt;/h2&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -695,26 +712,27 @@ self.addEventListener(&quot;fetch&quot;, (event) =&gt; {
 &lt;li&gt;정확한 벤치마킹을 해보진 않았지만 watch모드의 경우 체감이 될 정도로 jest보다 빨랐다.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;사용한 설정 파일(vite.config.ts)&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&quot;language-js&quot;&gt;/// &amp;#x3C;reference types=&quot;vitest&quot; /&gt;
-import { defineConfig } from &apos;vite&apos;;
-import react from &apos;@vitejs/plugin-react&apos;;
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;/// &amp;lt;reference types=&amp;quot;vitest&amp;quot; /&amp;gt;
+import { defineConfig } from &amp;#39;vite&amp;#39;;
+import react from &amp;#39;@vitejs/plugin-react&amp;#39;;
 
 // https://vitejs.dev/config/
 export default defineConfig({
   test: {
     globals: true,
-    environment: &apos;jsdom&apos;,
-    setupFiles: &apos;./setupTests.ts&apos;,
-    include: [&apos;**/__tests__/*.{ts,tsx}&apos;],
+    environment: &amp;#39;jsdom&amp;#39;,
+    setupFiles: &amp;#39;./setupTests.ts&amp;#39;,
+    include: [&amp;#39;**/__tests__/*.{ts,tsx}&amp;#39;],
   },
   plugins: [react()],
   resolve: {
     alias: {
-      &apos;@&apos;: &apos;/src&apos;,
+      &amp;#39;@&amp;#39;: &amp;#39;/src&amp;#39;,
     },
   },
-});
-&lt;/code&gt;&lt;/pre&gt;
+});&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
 &lt;p&gt;위의 설정 파일에서 test property가 vitest에 대해 설정한 전부다.&lt;/p&gt;
 &lt;h2&gt;VSC 익스텐션을 사용한 모습&lt;/h2&gt;
 &lt;p&gt;&lt;span
