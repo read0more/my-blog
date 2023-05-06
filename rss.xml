@@ -1,4 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하는 일기장 같은 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 02 May 2023 03:18:18 GMT</lastBuildDate><item><title><![CDATA[prisma를 mocking해보자]]></title><description><![CDATA[들어가기 전에 이 글은 prisma blog의 The Ultimate Guide to Testing with Prisma part1에서 prisma를 mocking 하는 방법에 대해서만 정리한 글이다. 링크의 글은 mock이 무엇인지, 왜 vitest…]]></description><link>https://read0more.github.io/blog/prisma를-mocking해보자/</link><guid isPermaLink="false">https://read0more.github.io/blog/prisma를-mocking해보자/</guid><pubDate>Fri, 28 Apr 2023 12:30:19 GMT</pubDate><content:encoded>&lt;h2&gt;들어가기 전에&lt;/h2&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하는 일기장 같은 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 06 May 2023 05:44:57 GMT</lastBuildDate><item><title><![CDATA[Next.js에서의 전환추적 스크립트 적용 회고]]></title><description><![CDATA[요구사항 및 분석 이커머스 회사를 다닐 때 전환을 추적하여 분석을 하기 위해 타게팅게이츠라는 전환 추적 스크립트에 대한 요청이 왔었다.
+코드를 작성하기 전에 타게팅게이츠 전환 스크립트를 어떻게 trigger…]]></description><link>https://read0more.github.io/blog/Next.js에서-전환추적-스크립트-적용-회고/</link><guid isPermaLink="false">https://read0more.github.io/blog/Next.js에서-전환추적-스크립트-적용-회고/</guid><pubDate>Sat, 06 May 2023 14:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;요구사항 및 분석&lt;/h2&gt;
+&lt;p&gt;이커머스 회사를 다닐 때 전환을 추적하여 분석을 하기 위해 타게팅게이츠라는 전환 추적 스크립트에 대한 요청이 왔었다.
+코드를 작성하기 전에 타게팅게이츠 전환 스크립트를 어떻게 trigger 시키는 지에 대한 분석이 필요했고, 분석했던 결과는 이렇다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;스크립트를 로드하면 전역 변수가 추가된다. 이 전역변수는 어떤 전환인지의 종류와 전환에 대한 디테일한 정보가 담긴다(구매전환이라면 상품에 대한 정보 등)&lt;/li&gt;
+&lt;li&gt;1의 전역변수의 내용을 타게팅게이츠에 보내는 method를 가진 전역변수가 추가된다. 해당 method는 parameter가 없어 어쩔 수 없이 1에 미리 추가하고 method를 실행하는 방식으로 구현해야한다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;다음으로는 어떻게 구현하기 위한 분석이 필요했다.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;사용하고 있는 Next.js의 버전이 낮아(버전은 10.x.x였다) Next.js에서 제공하는 next/script모듈을 사용하지 못한다.&lt;/li&gt;
+&lt;li&gt;전환 스크립트를 트리거할 페이지가 많지 않기 때문에(4~5개 정도의 페이지)_document에 추가해서 굳이 모든 페이지에서 타게팅게이츠 script를 load하게 하고 싶지 않았다.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;이러한 이유로 커스텀 hooks에서 script를 load하고, load 되었는지의 여부를 return하게 하였다.&lt;/p&gt;
+&lt;h2&gt;Sample Code&lt;/h2&gt;
+&lt;p&gt;대략 기억나는대로 예시 코드를 써보자면 이렇다.&lt;/p&gt;
+&lt;h3&gt;hooks 예시&lt;/h3&gt;
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;const id = &amp;quot;타게팅게이츠 script 식별할 id&amp;quot;;
+
+export default function useTargetingGates() {
+  const [initialized, setInitialized] = useState(false);
+
+  useEffect(() =&amp;gt; {
+    let script = document.getElementById(id) as HTMLScriptElement;
+
+    if (!script) {
+      script = document.createElement(&amp;quot;script&amp;quot;);
+      script.src = &amp;quot;스크립트 URL&amp;quot;;
+      script.async = true;
+      document.body.appendChild(script);
+    }
+
+    const onLoad = () =&amp;gt; {
+      setInitialized(true);
+    };
+
+    const onError = () =&amp;gt; {
+      // script load 실패에 대한 처리...
+    }
+
+    script.addEventListener(&amp;quot;load&amp;quot;, onLoad);
+    script.addEventListener(&amp;quot;error&amp;quot;, onError);
+
+    return () =&amp;gt; {
+      script.removeEventListener(&amp;quot;load&amp;quot;, onLoad);
+      script.removeEventListener(&amp;quot;error&amp;quot;, onLoad);
+    };
+  }, []);
+
+  return {
+    initialized,
+  };
+}&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;
+&lt;h3&gt;구매 page 예시&lt;/h3&gt;
+&lt;deckgo-highlight-code language=&quot;js&quot;  &gt;
+          &lt;code slot=&quot;code&quot;&gt;...
+const { initialized } = useTargetingGates();
+
+const onSubmit = () =&amp;gt; {
+ ...
+ if (initialized) {
+  1. 타게팅게이츠에서 요구하는 데이터 형식에 맞게 파싱하는 로직
+  2. 타게팅게이츠의 script load하여 추가된 전역 변수를 통해 타게팅게이츠 측에 데이터 전송
+ }
+ ... 
+}
+...&lt;/code&gt;
+        &lt;/deckgo-highlight-code&gt;</content:encoded></item><item><title><![CDATA[prisma를 mocking해보자]]></title><description><![CDATA[들어가기 전에 이 글은 prisma blog의 The Ultimate Guide to Testing with Prisma part1에서 prisma를 mocking 하는 방법에 대해서만 정리한 글이다. 링크의 글은 mock이 무엇인지, 왜 vitest…]]></description><link>https://read0more.github.io/blog/prisma를-mocking해보자/</link><guid isPermaLink="false">https://read0more.github.io/blog/prisma를-mocking해보자/</guid><pubDate>Fri, 28 Apr 2023 12:30:19 GMT</pubDate><content:encoded>&lt;h2&gt;들어가기 전에&lt;/h2&gt;
 &lt;p&gt;이 글은 prisma blog의 &lt;a href=&quot;https://www.prisma.io/blog/testing-series-1-8eRB5p0Y8o&quot;&gt;The Ultimate Guide to Testing with Prisma part1&lt;/a&gt;에서 prisma를 mocking 하는 방법에 대해서만 정리한 글이다. 링크의 글은 mock이 무엇인지, 왜 vitest를 선택했는지 등의 내용들이 있으니 한 번쯤 읽어보는 것을 추천한다.&lt;/p&gt;
 &lt;h2&gt;prisma를 mocking해야 하는 이유&lt;/h2&gt;
 &lt;p&gt;먼저 언급해두자면, mocking하지 않아도 테스트 자체는 돌아가기는 한다. 하지만 다음과 같은 문제점이 있다.&lt;/p&gt;
