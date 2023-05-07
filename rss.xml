@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하는 일기장 같은 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 06 May 2023 05:49:26 GMT</lastBuildDate><item><title><![CDATA[Next.js에서의 전환추적 스크립트 적용 회고]]></title><description><![CDATA[요구사항 및 분석 이커머스 회사를 다닐 때 전환을 추적하여 분석을 하기 위해 타게팅게이츠라는 전환 추적 스크립트에 대한 요청이 왔었다.
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[Gatsby Starter Blog RSS Feed]]></title><description><![CDATA[사용했던 기술들을 정리하는 일기장 같은 공간입니다.]]></description><link>https://read0more.github.io/blog</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 07 May 2023 10:40:41 GMT</lastBuildDate><item><title><![CDATA[Next.js에서의 전환추적 스크립트 적용 회고]]></title><description><![CDATA[요구사항 및 분석 이커머스 회사를 다닐 때 전환을 추적하여 분석을 하기 위해 타게팅게이츠라는 전환 추적 스크립트에 대한 요청이 왔었다.
 코드를 작성하기 전에 타게팅게이츠 전환 스크립트를 어떻게 trigger…]]></description><link>https://read0more.github.io/blog/Next.js에서-전환추적-스크립트-적용-회고/</link><guid isPermaLink="false">https://read0more.github.io/blog/Next.js에서-전환추적-스크립트-적용-회고/</guid><pubDate>Sat, 06 May 2023 14:32:19 GMT</pubDate><content:encoded>&lt;h2&gt;요구사항 및 분석&lt;/h2&gt;
 &lt;p&gt;이커머스 회사를 다닐 때 전환을 추적하여 분석을 하기 위해 타게팅게이츠라는 전환 추적 스크립트에 대한 요청이 왔었다.
 코드를 작성하기 전에 타게팅게이츠 전환 스크립트를 어떻게 trigger 시키는 지에 대한 분석이 필요했고, 분석했던 결과는 이렇다.&lt;/p&gt;
@@ -507,11 +507,11 @@ concurrently는 여러 명령을 동시에 실행할 때 도움을 주는 패키
 &lt;p&gt;이를 확인하기 위해 간단한 스크립트를 작성해 보았다&lt;/p&gt;
 &lt;h2&gt;이미지가 담긴 요소의 swap&lt;/h2&gt;
 &lt;p&gt;사실, 단순히 img태그에서 이미지를 불러오게 하는 방식으로는 크게 차이가 없어보였다. 이는 알아서 이미지가 캐싱되었기 때문으로, 크롬 개발자 도구에서 캐싱을 잠시 끄고 테스트 해보았다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;./swap1.gif&quot; alt=&quot;img swap&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/my-blog/6657acc2e3237366bcca2bbb89932ae1/swap1.gif&quot; alt=&quot;img swap&quot;&gt;&lt;/p&gt;
 &lt;p&gt;처음 2번의 swap은 insertBefore를 이용한 swap이고, 그 다음은 innerHTML을 통한 swap이다. 개발자도구나 화면을 보면 알 수 있듯이 innerHTML로 swap 했을 경우 캐싱을 안했다면 이미지를 다시 불러오는 것을 확인 할 수 있다.&lt;/p&gt;
 &lt;h2&gt;canvas가 담긴 요소의 swap&lt;/h2&gt;
 &lt;p&gt;이번에는 문제가 더욱 심각하다.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;./swap2.gif&quot; alt=&quot;img swap2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/my-blog/7d2d6c03f9599a5897f3c5a30f5b21b7/swap2.gif&quot; alt=&quot;img swap2&quot;&gt;&lt;/p&gt;
 &lt;p&gt;마찬가지로 처음 2번의 swap은 insertBefore를 이용한 swap이고, 그 다음은 innerHTML을 통한 swap이다.
 화면을 보면 알 수 있듯이 innerHTML로 swap을 했더니 canvas로 그린 내용이 사라져 버린다! 위에서 언급했던대로 기존 내용을 &apos;완전히 삭제&apos;한 후 밑바닥부터 다시 쓰기 때문에 이런 현상이 발생한 것이다.&lt;/p&gt;
 &lt;h2&gt;결론&lt;/h2&gt;
